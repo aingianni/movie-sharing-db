@@ -4,7 +4,7 @@ export default function DisplayMovie (props) {
       {
         props.movie ?
         <div id="display-movie">
-            <img src={props.movie.Poster} alt={props.movie.title} />
+            <img src={props.movie.Poster} alt={props.movie.Title} />
             <h1>{props.movie.Title}</h1>
             <h4>Rated: {props.movie.Rated} Released: {props.movie.Released} Runtime: {props.movie.Runtime}</h4>
             <h4>Genre: {props.movie.Genre} Director: {props.movie.Director}</h4>
