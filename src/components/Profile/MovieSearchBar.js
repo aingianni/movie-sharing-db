@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import DisplayMovie from '../DisplayMovie/DisplayMovie'
 
 export default function MovieSearchBar () {
   const apiKey = '63153185'
@@ -34,6 +35,7 @@ export default function MovieSearchBar () {
         <input type="text" onChange={handleChange} value={searchTerm} />
         <input type="submit" value="submit" />
       </form>
+      <DisplayMovie movie={movie} />
     </>
   )
 }

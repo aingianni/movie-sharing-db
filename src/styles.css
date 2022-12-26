@@ -18,6 +18,11 @@
   display: flex;
 }
 
+#display-movie {
+  background-color: #615954;
+  border-radius: 10px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
