@@ -5,7 +5,7 @@ export default function MovieSearchBar () {
   const apiKey = '63153185'
   const [movie, setMovie] = useState(null)
   const [errorMessage, setErrorMessage] = useState('')
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState('')
 
   const getMovie = async (searchTerm) => {
     try {
@@ -21,7 +21,7 @@ export default function MovieSearchBar () {
   }
 
   const handleChange = (evt) => {
-    setSearchTerm(evt.target.value);
+    setSearchTerm(evt.target.value)
   }
 
   const handleSubmit = (evt) => {
@@ -32,8 +32,8 @@ export default function MovieSearchBar () {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} value={searchTerm} />
-        <input type="submit" value="submit" />
+        <input type='text' onChange={handleChange} value={searchTerm} />
+        <input type='submit' value='submit' />
       </form>
       <DisplayMovie movie={movie} />
     </>
