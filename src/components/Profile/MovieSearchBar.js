@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import DisplayMovie from '../DisplayMovie/DisplayMovie'
 
-export default function MovieSearchBar () {
+export default function MovieSearchBar (props) {
   const apiKey = '63153185'
   const [movie, setMovie] = useState(null)
   const [errorMessage, setErrorMessage] = useState('')
@@ -35,7 +35,7 @@ export default function MovieSearchBar () {
         <input type='text' onChange={handleChange} value={searchTerm} />
         <input type='submit' value='submit' />
       </form>
-      <DisplayMovie movie={movie} />
+      <DisplayMovie movie={movie} user={props.user} />
     </>
   )
 }

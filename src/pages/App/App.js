@@ -27,7 +27,7 @@ function App () {
         user
           ? <>
             <Routes>
-              <Route path='/profile' element={<Profile />} />
+              <Route path='/profile' element={<Profile user={user} />} />
             </Routes>
           </>
           : <AuthPage setUser={setUser} />

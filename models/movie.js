@@ -9,7 +9,8 @@ const movieSchema = new Schema({
   Director: String,
   Plot: String,
   Poster: String,
-  BoxOffice: String
+  BoxOffice: String,
+  userId: String
 }, {
   timestamps: true
 })

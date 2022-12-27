@@ -3,7 +3,7 @@ import FavoriteMovies from '../../components/Profile/FavoriteMovies'
 import MovieSearchBar from '../../components/Profile/MovieSearchBar'
 import ProfileDisplay from '../../components/Profile/ProfileDisplay'
 
-export default function Profile () {
+export default function Profile (props) {
   return (
     <>
       <div id='main-container'>
@@ -11,9 +11,9 @@ export default function Profile () {
           <ProfileDisplay />
         </div>
         <div>
-          <MovieSearchBar />
+          <MovieSearchBar user={props.user} />
           <FavoriteMovies />
-          <AllMovies />
+          <AllMovies user={props.user} />
         </div>
       </div>
     </>

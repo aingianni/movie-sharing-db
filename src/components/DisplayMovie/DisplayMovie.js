@@ -1,44 +1,45 @@
 import { useState, useEffect } from 'react'
 
 export default function DisplayMovie (props) {
-  const [movies, setMovies] = useState([])
-  const [foundMovie, setFoundMovie] = useState(null)
-  const [newMovie, setNewMovie] = useState({
-    Title: '',
-    Rated: '',
-    Released: '',
-    Runtime: '',
-    Genre: '',
-    Director: '',
-    Plot: '',
-    Poster: '',
-    BoxOffice: ''
-  })
+//   const [movies, setMovies] = useState([])
+//   const [foundMovie, setFoundMovie] = useState(null)
+//   const [newMovie, setNewMovie] = useState({
+//     Title: '',
+//     Rated: '',
+//     Released: '',
+//     Runtime: '',
+//     Genre: '',
+//     Director: '',
+//     Plot: '',
+//     Poster: '',
+//     BoxOffice: '',
+//     userId: ''
+//   })
 
-  const getMovies = async () => {
-    try {
-      const response = await fetch('/api/movies')
-      const data = await response.json()
-      setMovies(data)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+//   const getMovies = async () => {
+//     try {
+//       const response = await fetch('/api/movies')
+//       const data = await response.json()
+//       setMovies(data)
+//     } catch (error) {
+//       console.error(error)
+//     }
+//   }
 
-  const deleteMovie = async (id) => {
-    try {
-      const response = await fetch(`/api/movies/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      const data = await response.json()
-      setFoundMovie(data)
-    } catch (error) {
-      console.error(error)
-    }
-  }
+//   const deleteMovie = async (id) => {
+//     try {
+//       const response = await fetch(`/api/movies/${id}`, {
+//         method: 'DELETE',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       })
+//       const data = await response.json()
+//       setFoundMovie(data)
+//     } catch (error) {
+//       console.error(error)
+//     }
+//   }
 
   const createMovie = async () => {
     try {
@@ -56,11 +57,11 @@ export default function DisplayMovie (props) {
           Director: props.movie.Director,
           Plot: props.movie.Plot,
           Poster: props.movie.Poster,
-          BoxOffice: props.movie.BoxOffice
+          BoxOffice: props.movie.BoxOffice,
+          userId: props.user._id
         })
       })
       const data = await response.json()
-      setFoundMovie(data)
     } catch (error) {
       console.error(error)
     }
