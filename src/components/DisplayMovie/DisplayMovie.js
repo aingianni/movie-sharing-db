@@ -1,67 +1,27 @@
-import { useState, useEffect } from 'react'
+import { getMouseEventOptions } from '@testing-library/user-event/dist/utils'
 
-export default function DisplayMovie (props) {
-//   const [movies, setMovies] = useState([])
-//   const [foundMovie, setFoundMovie] = useState(null)
-//   const [newMovie, setNewMovie] = useState({
-//     Title: '',
-//     Rated: '',
-//     Released: '',
-//     Runtime: '',
-//     Genre: '',
-//     Director: '',
-//     Plot: '',
-//     Poster: '',
-//     BoxOffice: '',
-//     userId: ''
-//   })
-
-//   const getMovies = async () => {
-//     try {
-//       const response = await fetch('/api/movies')
-//       const data = await response.json()
-//       setMovies(data)
-//     } catch (error) {
-//       console.error(error)
-//     }
-//   }
-
-//   const deleteMovie = async (id) => {
-//     try {
-//       const response = await fetch(`/api/movies/${id}`, {
-//         method: 'DELETE',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         }
-//       })
-//       const data = await response.json()
-//       setFoundMovie(data)
-//     } catch (error) {
-//       console.error(error)
-//     }
-//   }
-
+export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
   const createMovie = async () => {
     try {
-      const response = await fetch('/api/movies', {
+      await fetch('/api/movies', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          Title: props.movie.Title,
-          Rated: props.movie.Rated,
-          Released: props.movie.Released,
-          Runtime: props.movie.Runtime,
-          Genre: props.movie.Genre,
-          Director: props.movie.Director,
-          Plot: props.movie.Plot,
-          Poster: props.movie.Poster,
-          BoxOffice: props.movie.BoxOffice,
-          userId: props.user._id
+          Title: movie.Title,
+          Rated: movie.Rated,
+          Released: movie.Released,
+          Runtime: movie.Runtime,
+          Genre: movie.Genre,
+          Director: movie.Director,
+          Plot: movie.Plot,
+          Poster: movie.Poster,
+          BoxOffice: movie.BoxOffice,
+          userId: user._id
         })
       })
-      const data = await response.json()
+      getMovies()
     } catch (error) {
       console.error(error)
     }
@@ -70,19 +30,22 @@ export default function DisplayMovie (props) {
   return (
     <>
       {
-        props.movie
+        movie
           ? <div id='display-movie'>
-            <img src={props.movie.Poster} alt={props.movie.Title} />
-            <h1>{props.movie.Title}</h1>
-            <h4>Rated: {props.movie.Rated} Released: {props.movie.Released} Runtime: {props.movie.Runtime}</h4>
-            <h4>Genre: {props.movie.Genre} Director: {props.movie.Director}</h4>
+            <img src={movie.Poster} alt={movie.Title} />
+            <h1>{movie.Title}</h1>
+            <h4>Rated: {movie.Rated} Released: {movie.Released} Runtime: {movie.Runtime}</h4>
+            <h4>Genre: {movie.Genre} Director: {movie.Director}</h4>
             <p>
-              {props.movie.Plot}
+              {movie.Plot}
             </p>
-            <h4>Box Office: {props.movie.BoxOffice}</h4>
-            <form onSubmit={createMovie}>
-              <input type='submit' value='Add Movie' />
-            </form>
+            <h4>Box Office: {movie.BoxOffice}</h4>
+            <button onClick={() => {
+              createMovie()
+              setMovie(null)
+            }}
+            >Add Movie
+            </button>
           </div>
           : <div>
             No movie to display.

@@ -1,18 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-export default function AllMovies (props) {
-  const [movies, setMovies] = useState([])
+export default function AllMovies ({ movies, getMovies }) {
   const [foundMovie, setFoundMovie] = useState(null)
-
-  const getMovies = async () => {
-    try {
-      const response = await fetch('/api/movies')
-      const data = await response.json()
-      setMovies(data.filter(movie => movie.userId === props.user._id))
-    } catch (error) {
-      console.error(error)
-    }
-  }
 
   const deleteMovie = async (id) => {
     try {
@@ -24,19 +13,19 @@ export default function AllMovies (props) {
       })
       const data = await response.json()
       setFoundMovie(data)
+      getMovies()
     } catch (error) {
       console.error(error)
     }
   }
 
-  useEffect(() => {
-    getMovies()
-  }, [foundMovie])
-
   return (
     <>
       {
-        movies ? movies.map((movie) => {
+        movies
+          ? <ul>
+            {
+        movies.map((movie) => {
           return (
             <li key={movie._id}>
               <h2>{movie.Title}</h2>
@@ -44,8 +33,10 @@ export default function AllMovies (props) {
               <button onClick={() => deleteMovie(movie._id)}>Delete</button>
             </li>
           )
-        }) :
-        'There are no movies saved!'
+        })
+        }
+          </ul>
+          : 'There are no movies saved!'
       }
     </>
   )

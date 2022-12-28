@@ -1,7 +1,35 @@
-export default function FavoriteMovies () {
+import { useState, useEffect } from 'react'
+
+export default function FavoriteMovies ({ getMovies, movies, user }) {
+  const [index, setIndex] = useState(0)
+
+  const scroll = () => {
+    if (index === movies.length-1) {
+      return setIndex(0)
+    }
+    return setIndex(index + 1)
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {scroll()}, 3000)
+    return () => clearInterval(interval)
+  })
+
   return (
     <>
-      <h1>Movie Carousel Here</h1>
+      <div className='carousel-container'>
+        {
+          movies
+            ? movies.map((movie) => {
+              return (
+              <div className='carousel-item' style={{transform: `translate(-${index * 100}%)`}} key={movie._id}>
+                <img src={movie.Poster} />
+              </div>
+              )
+            })
+            : ''
+        }
+      </div>
     </>
   )
 }

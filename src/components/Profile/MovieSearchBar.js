@@ -4,7 +4,6 @@ import DisplayMovie from '../DisplayMovie/DisplayMovie'
 export default function MovieSearchBar (props) {
   const apiKey = '63153185'
   const [movie, setMovie] = useState(null)
-  const [errorMessage, setErrorMessage] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
 
   const getMovie = async (searchTerm) => {
@@ -16,7 +15,6 @@ export default function MovieSearchBar (props) {
       setMovie(data)
     } catch (e) {
       console.error(e)
-      setErrorMessage(e.message)
     }
   }
 
@@ -27,6 +25,7 @@ export default function MovieSearchBar (props) {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     getMovie(searchTerm)
+    setSearchTerm('')
   }
 
   return (
@@ -35,7 +34,11 @@ export default function MovieSearchBar (props) {
         <input type='text' onChange={handleChange} value={searchTerm} />
         <input type='submit' value='submit' />
       </form>
-      <DisplayMovie movie={movie} user={props.user} />
+      {
+        movie
+          ? <DisplayMovie movie={movie} user={props.user} setMovie={setMovie} getMovies={props.getMovies} />
+          : ''
+      }
     </>
   )
 }
