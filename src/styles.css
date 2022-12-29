@@ -26,7 +26,21 @@
 }
 
 .all-movies-title {
-    width: 15vw;
+    width: 10vw;
+}
+
+button {
+    background-color: #ee6c4d;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Maven Pro', sans-serif;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #293241;
 }
 
 .carousel-container {
@@ -51,19 +65,34 @@
     height: 35vh;
 }
   
-#content-container {
+#content-container, #display-movie, .form-container {
     align-items: center;
     background-color: #293241;
     border-top: 3px solid #3d5a80;
     border-bottom: 3px solid #3d5a80;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    color: white;
     display: flex;
     flex-direction: column;
-    color: white;
+    font-family: 'Maven Pro', sans-serif;
     justify-content: center;
+    min-height: 30vh;
     padding: 20px;
     /* width: 80%; */
+}
+
+#display-movie {
+    max-width: 45vw;
+}
+
+#display-movie > button:hover {
+    background-color: #3d5a80;
+}
+
+#display-movie > img {
+    border-radius: 10px;
+    height: 45vh;
 }
   
 li {
@@ -81,6 +110,19 @@ li {
     padding: 20px;
     width: 60%;
     /* max-width: 65vw; */
+}
+
+.modal {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    display: flex;
+    left: 0;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
 }
   
 .movie-searchbar {
@@ -122,8 +164,9 @@ li {
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     font-family: 'Maven Pro', sans-serif;
+    justify-content: center;
+    min-height: 10vh;
     padding: 20px;
     /* text-align: center; */
     /* width: 20% */
@@ -132,8 +175,7 @@ li {
 #profile-img > img {
     border: 2px solid #293241;
     border-radius: 10px;
-    height: 100px;
-    width: 100px;
+    max-height: 10vh;
 }
   
 #profile-log-out {
@@ -143,6 +185,6 @@ li {
     padding: 5px;
 }
   
-#profile-stats {
-    /* height: 70%; */
-}
+/* #profile-stats {
+    height: 70%;
+} */

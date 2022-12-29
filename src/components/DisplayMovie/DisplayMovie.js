@@ -29,6 +29,7 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
 
   return (
     <>
+    <div className="modal">
       {
         movie
           ? <div id='display-movie'>
@@ -51,6 +52,7 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
             No movie to display.
             </div>
       }
+    </div>
     </>
   )
 }
