@@ -21,16 +21,33 @@ export default function AllMovies ({ movies, getMovies }) {
 
   return (
     <>
-      {
+    <br />
+      <div id='movies-container'>
+        {
         movies
           ? <ul>
             {
         movies.map((movie) => {
           return (
             <li key={movie._id}>
-              <h2>{movie.Title}</h2>
-              <br />
-              <button onClick={() => deleteMovie(movie._id)}>Delete</button>
+              <div className="all-movies-list-item">
+                <div className="all-movies-img"><img src={movie.Poster} /></div>
+                <div className="all-movies-title">
+                  <h2>{movie.Title}</h2>
+                  <h4>Director: {movie.Director}</h4>
+                </div>
+                <div>
+                  <h5>Released: {movie.Released}</h5>
+                  <h5>Rated: {movie.Rated}</h5>
+                </div>
+                <div>
+                  <h5>Runtime: {movie.Runtime}</h5>
+                  <h5>Box Office: {movie.BoxOffice}</h5>   
+                </div>
+                <div>
+                  <button onClick={() => deleteMovie(movie._id)}>Delete</button>
+                </div>
+              </div>
             </li>
           )
         })
@@ -38,6 +55,7 @@ export default function AllMovies ({ movies, getMovies }) {
           </ul>
           : 'There are no movies saved!'
       }
+      </div>
     </>
   )
 }

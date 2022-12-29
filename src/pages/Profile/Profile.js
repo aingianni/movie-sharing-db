@@ -25,10 +25,10 @@ export default function Profile (props) {
   return (
     <>
       <div id='main-container'>
-        <div>
+        <div id='profile-container'>
           <ProfileDisplay />
         </div>
-        <div>
+        <div id='content-container'>
           <MovieSearchBar user={props.user} getMovies={getMovies} movies={movies} />
           <FavoriteMovies user={props.user} getMovies={getMovies} movies={movies} />
           <AllMovies user={props.user} getMovies={getMovies} movies={movies} />

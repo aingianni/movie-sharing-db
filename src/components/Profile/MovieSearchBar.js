@@ -30,10 +30,11 @@ export default function MovieSearchBar (props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type='text' onChange={handleChange} value={searchTerm} />
-        <input type='submit' value='submit' />
-      </form>
+      <div id='movie-search-container'>
+        <form onSubmit={handleSubmit}>
+          <input class='movie-searchbar' type='text' onChange={handleChange} value={searchTerm} placeholder='Search Movies' />
+        </form>
+      </div>
       {
         movie
           ? <DisplayMovie movie={movie} user={props.user} setMovie={setMovie} getMovies={props.getMovies} />
