@@ -26,7 +26,7 @@ export default function Profile (props) {
     <>
       <div id='main-container'>
         <div id='profile-container'>
-          <ProfileDisplay />
+          <ProfileDisplay user={props.user} movies={movies} />
         </div>
         <div id='content-container'>
           <MovieSearchBar user={props.user} getMovies={getMovies} movies={movies} />

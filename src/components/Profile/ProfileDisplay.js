@@ -1,4 +1,6 @@
-export default function ProfileDisplay () {
+import { useState } from 'react'
+
+export default function ProfileDisplay ({ user, movies }) {
   return (
     <>
       <div id='profile-img'>
@@ -6,7 +8,11 @@ export default function ProfileDisplay () {
       </div>
 
       <div id='profile-stats'>
-        <h3>Profile Stats</h3>
+        <ul>
+          <li>Favorite Director</li>
+          <li>Favorite Genre</li>
+          <li>Total Runtime</li>
+        </ul>
       </div>
 
       <div id='profile-log-out'>

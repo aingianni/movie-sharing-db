@@ -5,14 +5,12 @@ export default function AllMovies ({ movies, getMovies }) {
 
   const deleteMovie = async (id) => {
     try {
-      const response = await fetch(`/api/movies/${id}`, {
+      await fetch(`/api/movies/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
         }
       })
-      const data = await response.json()
-      setFoundMovie(data)
       getMovies()
     } catch (error) {
       console.error(error)
@@ -29,7 +27,7 @@ export default function AllMovies ({ movies, getMovies }) {
             {
         movies.map((movie) => {
           return (
-            <li key={movie._id}>
+            <li key={movie._id} onClick={() => setFoundMovie(movie)}>
               <div className="all-movies-list-item">
                 <div className="all-movies-img"><img src={movie.Poster} /></div>
                 <div className="all-movies-title">
@@ -45,7 +43,10 @@ export default function AllMovies ({ movies, getMovies }) {
                   <h5>Box Office: {movie.BoxOffice}</h5>   
                 </div>
                 <div>
-                  <button onClick={() => deleteMovie(movie._id)}>Delete</button>
+                  <button onClick={(evt) => {
+                    evt.stopPropagation()
+                    deleteMovie(movie._id)
+                    }}>Delete</button>
                 </div>
               </div>
             </li>
@@ -56,6 +57,23 @@ export default function AllMovies ({ movies, getMovies }) {
           : 'There are no movies saved!'
       }
       </div>
+      {
+        foundMovie ? 
+        <div className='modal'>
+        <div id='display-movie'>
+            <img src={foundMovie.Poster} alt={foundMovie.Title} />
+            <h1>{foundMovie.Title}</h1>
+            <h4>Rated: {foundMovie.Rated} Released: {foundMovie.Released} Runtime: {foundMovie.Runtime}</h4>
+            <h4>Genre: {foundMovie.Genre} Director: {foundMovie.Director}</h4>
+            <p>
+              {foundMovie.Plot}
+            </p>
+            <h4>Box Office: {foundMovie.BoxOffice}</h4>
+            <button onClick={() => setFoundMovie(null)}>Close</button>
+          </div>
+          </div>
+          : ''
+      }
     </>
   )
 }

@@ -1,5 +1,3 @@
-import { getMouseEventOptions } from '@testing-library/user-event/dist/utils'
-
 export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
   const createMovie = async () => {
     try {
@@ -41,12 +39,13 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
               {movie.Plot}
             </p>
             <h4>Box Office: {movie.BoxOffice}</h4>
-            <button onClick={() => {
-              createMovie()
-              setMovie(null)
-            }}
-            >Add Movie
-            </button>
+            <div className="controls-display-movie">
+                <button onClick={() => {
+                  createMovie()
+                  setMovie(null)
+                }}>Add Movie</button>
+                <button onClick={() => setMovie(null)}>Close</button>
+            </div>
           </div>
           : <div>
             No movie to display.
