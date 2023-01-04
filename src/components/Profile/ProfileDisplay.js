@@ -27,6 +27,41 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
     setInputValue('')
   }
 
+  const favoriteDirector = () => {
+    const allDirectors = movies.reduce((acc, item) => {
+      return [...acc, item.Director]
+    }, [])
+    const frequency = allDirectors.reduce((acc, item) => {
+      acc[item] = acc[item] ? acc[item] + 1 : 1
+      return acc
+    }, {})
+    let keys = Object.keys(frequency).sort(function(a, b) { return frequency[b] - frequency[a] })
+    return keys[0]
+  }
+
+  const favoriteGenre = () => {
+    const allGenres = movies.reduce((acc, item) => {
+      return [...acc, item.Genre]
+    }, [])
+    const frequency = allGenres.reduce((acc, item) => {
+      acc[item] = acc[item] ? acc[item] + 1 : 1
+      return acc
+    }, {})
+    let keys = Object.keys(frequency).sort(function(a, b) { return frequency[b] - frequency[a] })
+    return keys[0]
+  }
+
+  const totalRuntime = () => {
+    const allRuntimes = movies.reduce((acc, item) => {
+      return [...acc, item.Runtime]
+    }, [])
+    let runtimeSum = 0
+    for (let i = 0; i < allRuntimes.length; i++) {
+      runtimeSum += parseInt(allRuntimes[i].replace(' min', ''))
+    }
+    return runtimeSum + ' min'
+  }
+
   return (
     <>
       <div className='profile-img' onClick={() => setProfilePic(true)}>
@@ -40,9 +75,9 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
 
       <div id='profile-stats'>
         <ul>
-          <li>Favorite Director</li>
-          <li>Favorite Genre</li>
-          <li>Total Runtime</li>
+          <li>Favorite Director: {movies ? favoriteDirector() : '' }</li>
+          <li>Favorite Genre: {movies ? favoriteGenre() : '' }</li>
+          <li>Total Runtime: {movies ? totalRuntime() : '' }</li>
         </ul>
       </div>
 
