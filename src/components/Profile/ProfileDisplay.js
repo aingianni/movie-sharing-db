@@ -73,6 +73,8 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
         <div className="overlay"></div>
       </div>
 
+      <br />
+
       <div id='profile-stats'>
         <ul>
           <li>Favorite Director: {movies ? favoriteDirector() : '' }</li>
@@ -80,6 +82,8 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
           <li>Total Runtime: {movies ? totalRuntime() : '' }</li>
         </ul>
       </div>
+
+      <br />
 
       <div id='profile-log-out'>
         <button>Log Out</button>

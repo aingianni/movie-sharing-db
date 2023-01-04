@@ -187,7 +187,7 @@ ul, li {
 #movies-container {
     background-color: rgb(255, 255, 255, 0.7);
     border-radius: 5px;
-    max-height: 40vh;
+    max-height: 30vh;
     min-height: 30vh;
     overflow: auto;
     padding: 20px;
