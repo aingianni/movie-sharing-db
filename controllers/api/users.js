@@ -35,12 +35,27 @@ const dataController = {
     } catch {
       res.status(400).json('Bad Credentials')
     }
+  },
+  update (req, res, next) {
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
+      if (err) {
+        res.status(400).send({
+          msg: err.message
+        })
+      } else {
+        res.locals.data.user = updatedUser
+        next()
+      }
+    })
   }
 }
 
 const apiController = {
   auth (req, res) {
     res.json(res.locals.data.token)
+  },
+  show (req, res, next) {
+    res.json(res.locals.data.user)
   }
 }
 

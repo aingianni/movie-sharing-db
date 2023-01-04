@@ -32,7 +32,7 @@ export default function MovieSearchBar (props) {
     <>
       <div id='movie-search-container'>
         <form onSubmit={handleSubmit}>
-          <input class='movie-searchbar' type='text' onChange={handleChange} value={searchTerm} placeholder='Search Movies' />
+          <input className='movie-searchbar' type='text' onChange={handleChange} value={searchTerm} placeholder='Search Movies' />
         </form>
       </div>
       {

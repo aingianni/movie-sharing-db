@@ -17,7 +17,8 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
+  profilePic: String
 }, {
   timestamps: true,
   toJSON: {

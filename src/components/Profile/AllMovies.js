@@ -27,7 +27,7 @@ export default function AllMovies ({ movies, getMovies }) {
             {
         movies.map((movie) => {
           return (
-            <li key={movie._id} onClick={() => setFoundMovie(movie)}>
+            <li key={movie._id} className='movie-list' onClick={() => setFoundMovie(movie)}>
               <div className="all-movies-list-item">
                 <div className="all-movies-img"><img src={movie.Poster} /></div>
                 <div className="all-movies-title">
