@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { logOut } from '../../utilities/users-service';
 
 export default function ProfileDisplay ({ user, setUser, movies }) {
   const [profilePic, setProfilePic] = useState(null)
@@ -25,6 +26,11 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
     updateUser(user._id, {...user, "profilePic": inputValue})
     setProfilePic(null)
     setInputValue('')
+  }
+
+  function handleLogOut() {
+    logOut();
+    setUser(null);
   }
 
   const favoriteDirector = () => {
@@ -70,23 +76,26 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
           user.profilePic :
           'https://i.imgur.com/jUZ3hJA.jpg'
         } />
-        <div className="overlay"></div>
+        <div className="overlay"></div> 
       </div>
 
-      <br />
+      <div className="profile-data">
+        {user.name} <br />
+        <span className="profile-stat-data">{movies.length > 0 ? movies.length : 0} movies in collection.</span>
+      </div>
 
       <div id='profile-stats'>
         <ul>
-          <li>Favorite Director: {movies ? favoriteDirector() : '' }</li>
-          <li>Favorite Genre: {movies ? favoriteGenre() : '' }</li>
-          <li>Total Runtime: {movies ? totalRuntime() : '' }</li>
+          <li><h3>Favorite Director:</h3> <span className="profile-stat-data">{movies ? favoriteDirector() : '' }</span></li>
+          <li><h3>Favorite Genre:</h3> <span className="profile-stat-data">{movies ? favoriteGenre() : '' }</span></li>
+          <li><h3>Total Runtime:</h3> <span className="profile-stat-data">{movies ? totalRuntime() : '' }</span></li>
         </ul>
       </div>
 
       <br />
 
       <div id='profile-log-out'>
-        <button>Log Out</button>
+        <button onClick={handleLogOut}>Log Out</button>
       </div>
       
       {

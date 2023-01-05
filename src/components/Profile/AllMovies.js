@@ -20,12 +20,13 @@ export default function AllMovies ({ movies, getMovies }) {
   return (
     <>
     <br />
+    <div className="outer">
       <div id='movies-container'>
         {
         movies
           ? <ul>
             {
-        movies.map((movie) => {
+        movies.sort(function(a, b) {return a.Title.localeCompare(b.Title)}).map((movie) => {
           return (
             <li key={movie._id} className='movie-list' onClick={() => setFoundMovie(movie)}>
               <div className="all-movies-list-item">
@@ -57,6 +58,7 @@ export default function AllMovies ({ movies, getMovies }) {
           : 'There are no movies saved!'
       }
       </div>
+    </div>
       {
         foundMovie ? 
         <div className='modal'>
