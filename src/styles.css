@@ -275,6 +275,7 @@ button:hover {
     font-size: .9vw;
     justify-content: center;
     padding: 20px;
+    width: 7vw;
 }
 
 .profile-img > img {

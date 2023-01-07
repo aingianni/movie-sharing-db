@@ -69,37 +69,37 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
   }
 
   return (
-    <div className='tab-holder'>
+    <>
       <div>
-        <div>
-          <div className='profile-img' onClick={() => setProfilePic(true)}>
-            <img src={
+        <div className='profile-img' onClick={() => setProfilePic(true)}>
+          <img src={
               user.profilePic.length > 2
                 ? user.profilePic
-                : 'https://i.imgur.com/jUZ3hJA.jpg'}/>
-            <div className='overlay' />
-          </div>
-          <div className='profile-data'>
-            {user.name} <br />
-            <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
-          </div>
+                : 'https://i.imgur.com/jUZ3hJA.jpg'}
+          />
+          <div className='overlay' />
         </div>
-
-        <div id='profile-stats'>
-          <ul>
-            <li><h3>Favorite Director:</h3> <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
-            <li><h3>Favorite Genre:</h3> <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
-            <li><h3>Total Runtime:</h3> <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
-          </ul>
+        <div className='profile-data'>
+          {user.name} <br />
+          <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
         </div>
+      </div>
 
-        <br />
+      <div id='profile-stats'>
+        <ul>
+          <li><h3>Favorite Director:</h3> <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
+          <li><h3>Favorite Genre:</h3> <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
+          <li><h3>Total Runtime:</h3> <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
+        </ul>
+      </div>
 
-        <div id='profile-log-out'>
-          <button onClick={handleLogOut}>Log Out</button>
-        </div>
+      <br />
 
-        {
+      <div id='profile-log-out'>
+        <button onClick={handleLogOut}>Log Out</button>
+      </div>
+
+      {
         profilePic
           ? <div className='modal'>
             <div className='change-profile'>
@@ -113,7 +113,6 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
           </div>
           : ''
       }
-      </div>
-    </div>
+    </>
   )
 }
