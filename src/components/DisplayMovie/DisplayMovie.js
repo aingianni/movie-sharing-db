@@ -27,8 +27,8 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
 
   return (
     <>
-    <div className="modal">
-      {
+      <div className='modal'>
+        {
         movie
           ? <div id='display-movie'>
             <img src={movie.Poster} alt={movie.Title} />
@@ -39,19 +39,21 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
               {movie.Plot}
             </p>
             <h4>Box Office: {movie.BoxOffice}</h4>
-            <div className="controls-display-movie">
-                <button onClick={() => {
-                  createMovie()
-                  setMovie(null)
-                }}>Add Movie</button>
-                <button onClick={() => setMovie(null)}>Close</button>
+            <div className='controls-display-movie'>
+              <button onClick={() => {
+                createMovie()
+                setMovie(null)
+              }}
+              >Add Movie
+              </button>
+              <button onClick={() => setMovie(null)}>Close</button>
             </div>
           </div>
           : <div>
             No movie to display.
             </div>
       }
-    </div>
+      </div>
     </>
   )
 }

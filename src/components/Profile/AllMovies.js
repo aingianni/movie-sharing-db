@@ -19,7 +19,7 @@ export default function AllMovies ({ movies, getMovies }) {
   }
 
   const inputHandler = (e) => {
-    let lowerCase = e.target.value.toLowerCase()
+    const lowerCase = e.target.value.toLowerCase()
     setInputText(lowerCase)
   }
 
@@ -33,25 +33,25 @@ export default function AllMovies ({ movies, getMovies }) {
 
   return (
     <>
-    <div className="outer">
+      <div className='outer'>
 
-      <div className='search-toolbar'>
-        <input className="collection-search" placeholder='Search Collection' onChange={inputHandler} />
-      </div>
+        <div className='search-toolbar'>
+          <input className='collection-search' placeholder='Search Collection' onChange={inputHandler} />
+        </div>
 
-      <div className='spacer'></div>
+        <div className='spacer' />
 
-      <div id='movies-container'>
-        {
+        <div id='movies-container'>
+          {
         movies
           ? <ul>
             {
-        filteredMovies.sort(function(a, b) {return a.Title.localeCompare(b.Title)}).map((movie) => {
+        filteredMovies.sort(function (a, b) { return a.Title.localeCompare(b.Title) }).map((movie) => {
           return (
             <li key={movie._id} className='movie-list' onClick={() => setFoundMovie(movie)}>
-              <div className="all-movies-list-item">
-                <div className="all-movies-img"><img src={movie.Poster} /></div>
-                <div className="all-movies-title">
+              <div className='all-movies-list-item'>
+                <div className='all-movies-img'><img src={movie.Poster} /></div>
+                <div className='all-movies-title'>
                   <h2>{movie.Title}</h2>
                   <h4>Director: {movie.Director}</h4>
                 </div>
@@ -61,13 +61,15 @@ export default function AllMovies ({ movies, getMovies }) {
                 </div>
                 <div>
                   <h5>Runtime: {movie.Runtime}</h5>
-                  <h5>Box Office: {movie.BoxOffice}</h5>   
+                  <h5>Box Office: {movie.BoxOffice}</h5>
                 </div>
                 <div>
                   <button onClick={(evt) => {
                     evt.stopPropagation()
                     deleteMovie(movie._id)
-                    }}>Delete</button>
+                  }}
+                  >Delete
+                  </button>
                 </div>
               </div>
             </li>
@@ -77,22 +79,22 @@ export default function AllMovies ({ movies, getMovies }) {
           </ul>
           : 'There are no movies saved!'
       }
+        </div>
       </div>
-    </div>
       {
-        foundMovie ? 
-        <div className='modal'>
-        <div id='display-movie'>
-            <img src={foundMovie.Poster} alt={foundMovie.Title} />
-            <h1>{foundMovie.Title}</h1>
-            <h4>Rated: {foundMovie.Rated} Released: {foundMovie.Released} Runtime: {foundMovie.Runtime}</h4>
-            <h4>Genre: {foundMovie.Genre} Director: {foundMovie.Director}</h4>
-            <p>
-              {foundMovie.Plot}
-            </p>
-            <h4>Box Office: {foundMovie.BoxOffice}</h4>
-            <button onClick={() => setFoundMovie(null)}>Close</button>
-          </div>
+        foundMovie
+          ? <div className='modal'>
+            <div id='display-movie'>
+              <img src={foundMovie.Poster} alt={foundMovie.Title} />
+              <h1>{foundMovie.Title}</h1>
+              <h4>Rated: {foundMovie.Rated} Released: {foundMovie.Released} Runtime: {foundMovie.Runtime}</h4>
+              <h4>Genre: {foundMovie.Genre} Director: {foundMovie.Director}</h4>
+              <p>
+                {foundMovie.Plot}
+              </p>
+              <h4>Box Office: {foundMovie.BoxOffice}</h4>
+              <button onClick={() => setFoundMovie(null)}>Close</button>
+            </div>
           </div>
           : ''
       }

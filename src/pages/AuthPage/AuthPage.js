@@ -10,23 +10,26 @@ export default function AuthPage (props) {
     <div className='form-container'>
       <div>
         <h2>{header}</h2>
-        <button className='login-toggle' onClick={() => {
-          if (login) {
-            setLogin(null) 
-            setToggleButton('Login')
-            setHeader("Already have an account?")
-          } else {
-            setLogin(true) 
-            setToggleButton('Sign Up')
-            setHeader("Don't have an account?")
-          }}}>{toggleButton}</button>
+        <button
+          className='login-toggle' onClick={() => {
+            if (login) {
+              setLogin(null)
+              setToggleButton('Login')
+              setHeader('Already have an account?')
+            } else {
+              setLogin(true)
+              setToggleButton('Sign Up')
+              setHeader("Don't have an account?")
+            }
+          }}
+        >{toggleButton}
+        </button>
       </div>
       <div>
         {
-          login ? 
-          <LoginForm setUser={props.setUser} />
-          :
-          <SignUpForm setUser={props.setUser} />
+          login
+            ? <LoginForm setUser={props.setUser} />
+            : <SignUpForm setUser={props.setUser} />
         }
       </div>
     </div>

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
-body {
-    overflow: hidden;
-}
-
 .App {
     align-items: center;
     display: flex;
@@ -41,6 +37,10 @@ body {
     width: 10vw;
 }
 
+body {
+    overflow: hidden;
+}
+
 button {
     background-color: #ee6c4d;
     border: 0;
@@ -65,14 +65,12 @@ button:hover {
 }
   
 .carousel-item {
-    /* height: 28vh; */
     min-width: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
-    /* visibility: hidden; */
 }
 
 .carousel-item > img {
@@ -83,8 +81,8 @@ button:hover {
 .change-profile {
     align-items: center;
     background-color: #293241;
-    border-top: 3px solid #3d5a80;
-    border-bottom: 3px solid #3d5a80;
+    border-top: 5px solid #3d5a80;
+    border-bottom: 5px solid #3d5a80;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     color: white;
@@ -110,8 +108,8 @@ button:hover {
 #content-container, #display-movie {
     align-items: center;
     background-color: #293241;
-    border-top: 3px solid #3d5a80;
-    border-bottom: 3px solid #3d5a80;
+    border-top: 5px solid #3d5a80;
+    border-bottom: 5px solid #3d5a80;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     color: white;
@@ -121,7 +119,6 @@ button:hover {
     justify-content: center;
     min-height: 30vh;
     padding: 20px;
-    /* width: 80%; */
 }
 
 #content-container {
@@ -184,8 +181,8 @@ button:hover {
 .form-container {
     align-items: center;
     background-color: #293241;
-    border-top: 3px solid #3d5a80;
-    border-bottom: 3px solid #3d5a80;
+    border-top: 5px solid #3d5a80;
+    border-bottom: 5px solid #3d5a80;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     color: white;
@@ -195,12 +192,6 @@ button:hover {
     text-align: center;
     padding: 20px;
     width: 40vw;
-}
-
-ul, li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
 .login-toggle {
@@ -250,20 +241,6 @@ ul, li {
     justify-content: center;
     padding: 10px;
 }
-  
-/* #movies-container {
-    background-color: rgb(255, 255, 255, 0.7);
-    border-radius: 5px;
-    max-height: 30vh;
-    min-height: 30vh;
-    overflow-y: auto;
-    padding: 20px;
-    width: 50vw;
-}
-
-.outer {
-    border-radius: 5px;
-} */
 
 #movies-container {
     max-height: 25vh;
@@ -280,12 +257,22 @@ ul, li {
     padding: 20px;
     width: 50vw;
 }
+
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
   
 #profile-container {
     align-items: center;
     background-color: #3d5a80;
-    border-top: 2px solid #293241;
-    border-bottom: 2px solid #293241;
+    border-top: 5px solid #293241;
+    border-bottom: 5px solid #293241;
     border-radius: 20px 0 0 20px;
     color: white;
     display: flex;
@@ -308,16 +295,6 @@ ul, li {
 
 .profile-stat-data {
     color: #b0b0b0;
-}
-
-.overlay {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
 }
   
 .profile-img:hover img {
@@ -344,4 +321,10 @@ ul, li {
 
 .spacer {
     height: 10px;
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
