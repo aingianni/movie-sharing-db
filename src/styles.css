@@ -117,13 +117,12 @@ button:hover {
     flex-direction: column;
     font-family: 'Maven Pro', sans-serif;
     justify-content: center;
-    min-height: 30vh;
     padding: 20px;
 }
 
 #content-container {
     font-size: .9vw;
-    max-height: 70vh;
+    height: 90vh;
 }
 
 .controls-display-movie {
@@ -206,7 +205,6 @@ button:hover {
     height: 100vh;
     justify-content: center;
     padding: 20px;
-    width: 60%;
 }
 
 .modal {
@@ -243,8 +241,7 @@ button:hover {
 }
 
 #movies-container {
-    max-height: 25vh;
-    min-height: 25vh;
+    height: 45vh;
     overflow: auto;
     width: 50vw;
 }
@@ -252,10 +249,7 @@ button:hover {
 .outer {
     background-color: rgb(255, 255, 255, 0.7);
     border-radius: 5px;
-    max-height: 30vh;
-    min-height: 30vh;
     padding: 20px;
-    width: 50vw;
 }
 
 .overlay {
@@ -280,7 +274,6 @@ button:hover {
     font-family: 'Maven Pro', sans-serif;
     font-size: .9vw;
     justify-content: center;
-    min-height: 10vh;
     padding: 20px;
 }
 
@@ -321,6 +314,12 @@ button:hover {
 
 .spacer {
     height: 10px;
+}
+
+.tab-holder {
+    align-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 ul, li {
