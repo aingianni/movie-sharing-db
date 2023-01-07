@@ -94,6 +94,19 @@ button:hover {
     padding: 20px;
 }
 
+.collection-search {
+    background-color: rgb(255, 255, 255, 0.7);
+    border: 0;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    color: #293241;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: .8vw;
+    padding: 10px;
+    text-align: center;
+    width: 25vw;
+}
+
 #content-container, #display-movie {
     align-items: center;
     background-color: #293241;
@@ -113,7 +126,7 @@ button:hover {
 
 #content-container {
     font-size: .9vw;
-    height: 70vh;
+    max-height: 70vh;
 }
 
 .controls-display-movie {
@@ -253,8 +266,8 @@ ul, li {
 } */
 
 #movies-container {
-    max-height: 30vh;
-    min-height: 30vh;
+    max-height: 25vh;
+    min-height: 25vh;
     overflow: auto;
     width: 50vw;
 }
@@ -321,4 +334,14 @@ ul, li {
     display: flex;
     justify-content: center;
     padding: 5px;
+}
+
+.search-toolbar {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.spacer {
+    height: 10px;
 }

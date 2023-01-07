@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 export default function AllMovies ({ movies, getMovies }) {
   const [foundMovie, setFoundMovie] = useState(null)
+  const [inputText, setInputText] = useState('')
 
   const deleteMovie = async (id) => {
     try {
@@ -17,16 +18,35 @@ export default function AllMovies ({ movies, getMovies }) {
     }
   }
 
+  const inputHandler = (e) => {
+    let lowerCase = e.target.value.toLowerCase()
+    setInputText(lowerCase)
+  }
+
+  const filteredMovies = movies.filter((movie) => {
+    if (inputText === '') {
+      return movie
+    } else {
+      return movie.Title.toLowerCase().includes(inputText)
+    }
+  })
+
   return (
     <>
-    <br />
     <div className="outer">
+
+      <div className='search-toolbar'>
+        <input className="collection-search" placeholder='Search Collection' onChange={inputHandler} />
+      </div>
+
+      <div className='spacer'></div>
+
       <div id='movies-container'>
         {
         movies
           ? <ul>
             {
-        movies.sort(function(a, b) {return a.Title.localeCompare(b.Title)}).map((movie) => {
+        filteredMovies.sort(function(a, b) {return a.Title.localeCompare(b.Title)}).map((movie) => {
           return (
             <li key={movie._id} className='movie-list' onClick={() => setFoundMovie(movie)}>
               <div className="all-movies-list-item">

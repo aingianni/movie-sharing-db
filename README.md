@@ -21,6 +21,7 @@ MongoDB, Express, Node, React, CSS, JavaScript, HTML
 # Links to Resources Used
 
 [How to Build a Carousel](https://blog.bitsrc.io/simple-carousel-in-react-2aac73887243)
+[React Search Bar](https://dev.to/salehmubashar/search-bar-in-react-js-545l)
 
 # Future Improvements
 There can be multiple users on the site and the ability to add friends. As a friend the user can see their friends collection. There would be a friends list and a way for both the user and the friends to leave comments on the movies in the collection.
