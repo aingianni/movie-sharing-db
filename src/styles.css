@@ -128,8 +128,7 @@ button:hover {
 .controls-display-movie {
     align-items: center;
     display: flex;
-    justify-content: space-between;
-    width: 200px;
+    justify-content: space-around;
 }
 
 #display-movie {
@@ -249,6 +248,7 @@ button:hover {
 .outer {
     background-color: rgb(255, 255, 255, 0.7);
     border-radius: 5px;
+    color: #293241;
     padding: 20px;
 }
 

@@ -89,11 +89,15 @@ export default function AllMovies ({ movies, getMovies }) {
               <h1>{foundMovie.Title}</h1>
               <h4>Rated: {foundMovie.Rated} Released: {foundMovie.Released} Runtime: {foundMovie.Runtime}</h4>
               <h4>Genre: {foundMovie.Genre} Director: {foundMovie.Director}</h4>
-              <p>
-                {foundMovie.Plot}
-              </p>
-              <h4>Box Office: {foundMovie.BoxOffice}</h4>
-              <button onClick={() => setFoundMovie(null)}>Close</button>
+              <div className='outer'>
+                <p>
+                  {foundMovie.Plot}
+                </p>
+                <h4>Box Office: {foundMovie.BoxOffice}</h4>
+                <div className='controls-display-movie'>
+                  <button onClick={() => setFoundMovie(null)}>Close</button>
+                </div>
+              </div>
             </div>
           </div>
           : ''
