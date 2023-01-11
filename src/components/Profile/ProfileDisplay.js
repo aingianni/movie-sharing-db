@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { logOut } from '../../utilities/users-service'
 
-export default function ProfileDisplay ({ user, setUser, movies }) {
+export default function ProfileDisplay ({ user, setUser, movies, setTab, tab }) {
   const [profilePic, setProfilePic] = useState(null)
   const [inputValue, setInputValue] = useState('')
 
@@ -68,8 +68,21 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
     return runtimeSum + ' min'
   }
 
+  const handleTab = () => {
+    if (tab === 0) {
+      return 82
+    } else {
+      return 0
+    }
+  }
+
   return (
     <>
+    <div className='chevron-holder' onClick={() => setTab(handleTab())}>
+      <span class="chevron left"></span>
+    </div>
+
+    <div>
       <div>
         <div className='profile-img' onClick={() => setProfilePic(true)}>
           <img src={
@@ -102,6 +115,7 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
           <button onClick={handleLogOut}>Log Out</button>
         </div>
       </div>
+    </div>
 
       {
         profilePic

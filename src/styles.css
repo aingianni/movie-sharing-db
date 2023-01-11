@@ -77,6 +77,34 @@ button:hover {
     border-radius: 10px;
     height: 28vh;
 }
+
+.chevron-holder {
+    padding: 10px;
+}
+
+.chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.45em;
+}
+
+.chevron.right:before {
+	left: 0;
+	transform: rotate(45deg);
+}
+
+.chevron.left:before {
+	left: 0.25em;
+	transform: rotate(-135deg);
+}
  
 .change-profile {
     align-items: center;
@@ -118,6 +146,7 @@ button:hover {
     font-family: 'Maven Pro', sans-serif;
     justify-content: center;
     padding: 20px;
+    z-index: 1;
 }
 
 #content-container {
@@ -216,7 +245,7 @@ button:hover {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 1;
+    z-index: 5;
 }
 
 .movie-searchbar {
@@ -270,12 +299,14 @@ button:hover {
     border-radius: 20px 0 0 20px;
     color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-family: 'Maven Pro', sans-serif;
     font-size: .9vw;
     justify-content: center;
     padding: 20px;
+    transition: all 0.5s ease-out;
     width: 9vw;
+    z-index: 0;
 }
 
 .profile-img {
@@ -322,12 +353,14 @@ button:hover {
     border-radius: 0 20px 20px 0;
     color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-family: 'Maven Pro', sans-serif;
     font-size: .9vw;
     justify-content: center;
     padding: 20px;
+    transition: all 0.5s ease-out;
     width: 9vw;
+    z-index: 0;
 }
 
 .spacer {
