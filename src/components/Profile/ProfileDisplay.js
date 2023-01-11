@@ -75,16 +75,16 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
           <img src={
               user.profilePic.length > 2
                 ? user.profilePic
-                : 'https://i.imgur.com/jUZ3hJA.jpg'}
+                : 'https://i.imgur.com/jUZ3hJA.jpg'
+}
           />
-          <div className='overlay' />
         </div>
         <div className='profile-data'>
           {user.name} <br />
           <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
         </div>
       </div>
-      
+
       <br />
 
       <div className='outer'>

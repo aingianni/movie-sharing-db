@@ -1,11 +1,10 @@
 export default function Social (props) {
-
   return (
     <>
-        <h2>Social</h2>
-        <div className="outer">
-            content goes here
-        </div>
+      <div className='outer'>
+        <h3>Social Tab</h3>
+        social content goes here
+      </div>
     </>
   )
 }
