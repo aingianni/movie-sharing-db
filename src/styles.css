@@ -249,7 +249,7 @@ button:hover {
     background-color: rgb(255, 255, 255, 0.7);
     border-radius: 5px;
     color: #293241;
-    padding: 20px;
+    padding: 10px;
 }
 
 .overlay {
@@ -288,7 +288,7 @@ button:hover {
 }
 
 .profile-stat-data {
-    color: #b0b0b0;
+    color: #8a8a8a;
 }
   
 .profile-img:hover img {
@@ -311,6 +311,22 @@ button:hover {
     align-content: center;
     display: flex;
     justify-content: center;
+}
+
+.social-tab-container {
+    align-items: center;
+    background-color: #3d5a80;
+    border-top: 5px solid #293241;
+    border-bottom: 5px solid #293241;
+    border-radius: 0 20px 20px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: .9vw;
+    justify-content: center;
+    padding: 20px;
+    width: 7vw;
 }
 
 .spacer {

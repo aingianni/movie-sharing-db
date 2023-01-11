@@ -4,6 +4,7 @@ import AllMovies from '../../components/Profile/AllMovies'
 import FavoriteMovies from '../../components/Profile/FavoriteMovies'
 import MovieSearchBar from '../../components/Profile/MovieSearchBar'
 import ProfileDisplay from '../../components/Profile/ProfileDisplay'
+import Social from '../../components/Social/Social'
 
 export default function Profile (props) {
   const [movies, setMovies] = useState([])
@@ -32,6 +33,9 @@ export default function Profile (props) {
           <MovieSearchBar user={props.user} getMovies={getMovies} movies={movies} />
           <FavoriteMovies user={props.user} getMovies={getMovies} movies={movies} />
           <AllMovies user={props.user} getMovies={getMovies} movies={movies} />
+        </div>
+        <div className='social-tab-container'>
+          <Social />
         </div>
       </div>
     </>

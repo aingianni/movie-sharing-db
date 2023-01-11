@@ -84,19 +84,23 @@ export default function ProfileDisplay ({ user, setUser, movies }) {
           <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
         </div>
       </div>
-
-      <div id='profile-stats'>
-        <ul>
-          <li><h3>Favorite Director:</h3> <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
-          <li><h3>Favorite Genre:</h3> <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
-          <li><h3>Total Runtime:</h3> <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
-        </ul>
-      </div>
-
+      
       <br />
 
-      <div id='profile-log-out'>
-        <button onClick={handleLogOut}>Log Out</button>
+      <div className='outer'>
+        <div id='profile-stats'>
+          <ul>
+            <li><h4>Favorite Director:</h4> <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
+            <li><h4>Favorite Genre:</h4> <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
+            <li><h4>Total Runtime:</h4> <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
+          </ul>
+        </div>
+
+        <br />
+
+        <div id='profile-log-out'>
+          <button onClick={handleLogOut}>Log Out</button>
+        </div>
       </div>
 
       {
