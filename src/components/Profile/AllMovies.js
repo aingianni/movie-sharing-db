@@ -87,8 +87,8 @@ export default function AllMovies ({ movies, getMovies }) {
             <div id='display-movie'>
               <img src={foundMovie.Poster} alt={foundMovie.Title} />
               <h1>{foundMovie.Title}</h1>
-              <h4>Rated: {foundMovie.Rated} Released: {foundMovie.Released} Runtime: {foundMovie.Runtime}</h4>
-              <h4>Genre: {foundMovie.Genre} Director: {foundMovie.Director}</h4>
+              <h4><span className="outer">Rated: {foundMovie.Rated}</span> <span className="outer">Released: {foundMovie.Released}</span> <span className="outer">Runtime: {foundMovie.Runtime}</span></h4>
+              <h4><span className="outer">Genre: {foundMovie.Genre}</span> <span className="outer">Director: {foundMovie.Director}</span></h4>
               <div className='outer'>
                 <p>
                   {foundMovie.Plot}

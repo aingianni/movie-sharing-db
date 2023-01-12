@@ -33,8 +33,8 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
           ? <div id='display-movie'>
             <img src={movie.Poster} alt={movie.Title} />
             <h1>{movie.Title}</h1>
-            <h4>Rated: {movie.Rated} Released: {movie.Released} Runtime: {movie.Runtime}</h4>
-            <h4>Genre: {movie.Genre} Director: {movie.Director}</h4>
+            <h4><span className="outer">Rated: {movie.Rated}</span> <span className="outer">Released: {movie.Released}</span> <span className="outer">Runtime: {movie.Runtime}</span></h4>
+            <h4><span className="outer">Genre: {movie.Genre}</span> <span className="outer">Director: {movie.Director}</span></h4>
             <div className='outer'>
               <p>
                 {movie.Plot}
