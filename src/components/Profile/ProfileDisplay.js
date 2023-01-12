@@ -22,9 +22,15 @@ export default function ProfileDisplay ({ user, setUser, movies, setTab, tab, se
 
   const favoriteGenre = () => {
     const allGenres = movies.reduce((acc, item) => {
-      return [...acc, item.Genre]
+      return [...acc, item.Genre.replace(/,/g, '')]
     }, [])
-    const frequency = allGenres.reduce((acc, item) => {
+    const allGenresSplit = []
+    allGenres.forEach(element => {
+      const arr = element.split(' ')
+      arr.forEach(ele => allGenresSplit.push(ele))
+    })
+    console.log(allGenresSplit)
+    const frequency = allGenresSplit.reduce((acc, item) => {
       acc[item] = acc[item] ? acc[item] + 1 : 1
       return acc
     }, {})
