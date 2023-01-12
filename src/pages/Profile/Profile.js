@@ -5,8 +5,10 @@ import FavoriteMovies from '../../components/Profile/FavoriteMovies'
 import MovieSearchBar from '../../components/Profile/MovieSearchBar'
 import ProfileDisplay from '../../components/Profile/ProfileDisplay'
 import Social from '../../components/Social/Social'
+import ProfilePic from '../../components/ProfilePic/ProfilePic'
 
 export default function Profile (props) {
+  const [profilePic, setProfilePic] = useState(null)
   const [movies, setMovies] = useState([])
   const [tab, setTab] = useState(0)
   const [socialTab, setSocialTab] = useState(0)
@@ -29,8 +31,11 @@ export default function Profile (props) {
     <>
       <div id='main-container'>
         <div id='profile-container' style={{ transform: `translate(${tab}%)` }}>
-          <ProfileDisplay user={props.user} setUser={props.setUser} movies={movies} setTab={setTab} tab={tab} />
+          <ProfileDisplay user={props.user} setUser={props.setUser} movies={movies} setTab={setTab} tab={tab} setProfilePic={setProfilePic} />
         </div>
+        {
+          profilePic ? <ProfilePic user={props.user} setUser={props.setUser} setProfilePic={setProfilePic} /> : ''
+        }
         <div id='content-container'>
           <MovieSearchBar user={props.user} getMovies={getMovies} movies={movies} />
           <FavoriteMovies user={props.user} getMovies={getMovies} movies={movies} />

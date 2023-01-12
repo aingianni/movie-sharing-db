@@ -1,32 +1,7 @@
 import { useState } from 'react'
 import { logOut } from '../../utilities/users-service'
 
-export default function ProfileDisplay ({ user, setUser, movies, setTab, tab }) {
-  const [profilePic, setProfilePic] = useState(null)
-  const [inputValue, setInputValue] = useState('')
-
-  const updateUser = async (id, updatedUser) => {
-    try {
-      const response = await fetch(`/api/users/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ ...updatedUser })
-      })
-      const data = await response.json()
-      setUser(data)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    updateUser(user._id, { ...user, profilePic: inputValue })
-    setProfilePic(null)
-    setInputValue('')
-  }
+export default function ProfileDisplay ({ user, setUser, movies, setTab, tab, setProfilePic }) {
 
   function handleLogOut () {
     logOut()
@@ -116,21 +91,6 @@ export default function ProfileDisplay ({ user, setUser, movies, setTab, tab }) 
         </div>
       </div>
     </div>
-
-      {
-        profilePic
-          ? <div className='modal'>
-            <div className='change-profile'>
-              <h2>Change Profile Photo</h2>
-              <form type='submit' onSubmit={handleSubmit}>
-                <input className='movie-searchbar' name='profilePic' value={inputValue} onChange={(evt) => setInputValue(evt.target.value)} />
-              </form>
-              <br />
-              <button onClick={() => setProfilePic(null)}>Close</button>
-            </div>
-          </div>
-          : ''
-      }
     </>
   )
 }
