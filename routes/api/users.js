@@ -9,6 +9,8 @@ router.post('/', dataController.create, apiController.auth)
 router.post('/login', dataController.login, apiController.auth)
 // PUT
 router.put('/:id', dataController.update, apiController.show)
+// GET
+router.get('/', dataController.index, apiController.index)
 
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, checkToken)

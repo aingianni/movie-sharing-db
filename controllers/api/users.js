@@ -47,10 +47,25 @@ const dataController = {
         next()
       }
     })
+  },
+  index (req, res, next) {
+    User.find({}, (err, foundUsers) => {
+      if (err) {
+        res.status(400).send({
+          msg: err.message
+        })
+      } else {
+        res.locals.data.users = foundUsers
+        next()
+      }
+    })
   }
 }
 
 const apiController = {
+  index (req, res, next) {
+    res.json(res.locals.data.users)
+  },
   auth (req, res) {
     res.json(res.locals.data.token)
   },

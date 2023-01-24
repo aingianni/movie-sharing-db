@@ -10,6 +10,7 @@ import ProfilePic from '../../components/ProfilePic/ProfilePic'
 export default function Profile (props) {
   const [profilePic, setProfilePic] = useState(null)
   const [movies, setMovies] = useState([])
+  const [users, setUsers] = useState([])
   const [tab, setTab] = useState(0)
   const [socialTab, setSocialTab] = useState(0)
 
@@ -23,8 +24,19 @@ export default function Profile (props) {
     }
   }
 
+  const getUsers = async () => {
+    try {
+      const response = await fetch('/api/users')
+      const data = await response.json()
+      setUsers(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     getMovies()
+    getUsers()
   }, [])
 
   return (
@@ -42,7 +54,7 @@ export default function Profile (props) {
           <AllMovies user={props.user} getMovies={getMovies} movies={movies} />
         </div>
         <div className='social-tab-container' style={{ transform: `translate(-${socialTab}%)` }}>
-          <Social setSocialTab={setSocialTab} socialTab={socialTab} />
+          <Social setSocialTab={setSocialTab} socialTab={socialTab} users={users} />
         </div>
       </div>
     </>

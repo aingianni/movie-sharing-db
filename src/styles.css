@@ -366,6 +366,10 @@ button:hover {
     z-index: 0;
 }
 
+.social-list {
+    visibility: hidden;
+}
+
 .spacer {
     height: 10px;
 }
