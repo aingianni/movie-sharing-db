@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import { logOut } from '../../utilities/users-service'
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft'
 
 export default function ProfileDisplay ({ user, setUser, movies, setTab, tab, setProfilePic }) {
-
   function handleLogOut () {
     logOut()
     setUser(null)
@@ -60,7 +59,7 @@ export default function ProfileDisplay ({ user, setUser, movies, setTab, tab, se
   return (
     <>
     <div className='chevron-holder' onClick={() => setTab(handleTab())}>
-      <span class="chevron left"></span>
+      <ArrowCircleLeftIcon />
     </div>
 
     <div>

@@ -1,3 +1,5 @@
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight'
+
 export default function Social ({ setSocialTab, socialTab }) {
     
     const handleSocialTab = () => {
@@ -16,7 +18,7 @@ export default function Social ({ setSocialTab, socialTab }) {
       </div>
 
         <div className='chevron-holder' onClick={() => setSocialTab(handleSocialTab())}>
-            <span class="chevron right"></span>
+          <ArrowCircleRightIcon />
         </div>
     </>
   )
