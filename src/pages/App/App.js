@@ -18,7 +18,7 @@ function App () {
           ? <>
             <Routes>
               <Route path='/' element={<Profile user={user} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />} />
-              <Route path='/:userId' element={<ViewOtherUserProfile user={user} viewUser={viewUser} setViewUser={setViewUser} />} />
+              <Route path='/:userId' element={<ViewOtherUserProfile user={user} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />} />
             </Routes>
           </>
           : <AuthPage setUser={setUser} />

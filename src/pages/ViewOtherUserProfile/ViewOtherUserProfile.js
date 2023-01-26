@@ -7,7 +7,7 @@ import ProfileDisplay from '../../components/Profile/ProfileDisplay'
 import Social from '../../components/Social/Social'
 import ProfilePic from '../../components/ProfilePic/ProfilePic'
 
-export default function Profile ({ user, viewUser }) {
+export default function Profile ({ user, setUser, viewUser }) {
   const [profilePic, setProfilePic] = useState(null)
   const [movies, setMovies] = useState([])
   const [users, setUsers] = useState([])
@@ -43,7 +43,7 @@ export default function Profile ({ user, viewUser }) {
     <>
       <div id='main-container'>
         <div id='profile-container' style={{ transform: `translate(${tab}%)` }}>
-          {/* <ProfileDisplay user={viewUser} setUser={null} movies={movies} setTab={setTab} tab={tab} setProfilePic={setProfilePic} /> */}
+          <ProfileDisplay user={user} viewUser={viewUser} setUser={setUser} movies={movies} setTab={setTab} tab={tab} setProfilePic={setProfilePic} />
         </div>
         {
         //   profilePic ? <ProfilePic user={viewUser} setUser={null} setProfilePic={setProfilePic} /> : ''

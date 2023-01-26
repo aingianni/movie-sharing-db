@@ -1,7 +1,7 @@
 import { logOut } from '../../utilities/users-service'
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft'
 
-export default function ProfileDisplay ({ user, setUser, movies, setTab, tab, setProfilePic }) {
+export default function ProfileDisplay ({ user, setUser, viewUser, movies, setTab, tab, setProfilePic }) {
   function handleLogOut () {
     logOut()
     setUser(null)
@@ -62,20 +62,37 @@ export default function ProfileDisplay ({ user, setUser, movies, setTab, tab, se
     </div>
 
     <div>
+
+    {
+      viewUser ? 
+      // ViewUser Profile Display
+      <div>
+        <div className='profile-img'>
+          <img src={
+              viewUser.profilePic.length > 2
+                ? viewUser.profilePic
+                : 'https://i.imgur.com/jUZ3hJA.jpg'}/>
+        </div>
+        <div className='profile-data'>
+          {viewUser.name} <br />
+          <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
+        </div>
+      </div>
+      :
+      // User Profile Display
       <div>
         <div className='profile-img' onClick={() => setProfilePic(true)}>
           <img src={
               user.profilePic.length > 2
                 ? user.profilePic
-                : 'https://i.imgur.com/jUZ3hJA.jpg'
-}
-          />
+                : 'https://i.imgur.com/jUZ3hJA.jpg'}/>
         </div>
         <div className='profile-data'>
           {user.name} <br />
           <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
         </div>
       </div>
+    }
 
       <br />
 
