@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-export default function SocialSearch ({ users }) {
+export default function SocialSearch ({ users, viewUser, setViewUser }) {
     const [inputText, setInputText] = useState('')
     const [visible, setVisible] = useState('hidden')
 
@@ -9,9 +10,6 @@ export default function SocialSearch ({ users }) {
         setInputText(lowerCase)
     }
 
-    console.log(inputText)
-    console.log(visible)
-
     const filteredUsers = users.filter((user) => {
         if (inputText === '') {
           return user
@@ -19,6 +17,8 @@ export default function SocialSearch ({ users }) {
           return user.name.toLowerCase().includes(inputText)
         }
       })
+
+    const navigate = useNavigate()
 
     return (
         <div>
@@ -32,7 +32,10 @@ export default function SocialSearch ({ users }) {
                         {
                             filteredUsers.map((user) => {
                                 return (
-                                <li key={user._id}>{user.name}</li>
+                                <li key={user._id} onClick={() => {
+                                    setViewUser(user)
+                                    navigate(`/${user._id}`)
+                                    }}>{user.name}</li>
                                 )
                             })
                         }

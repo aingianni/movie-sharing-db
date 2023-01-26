@@ -7,7 +7,7 @@ import ProfileDisplay from '../../components/Profile/ProfileDisplay'
 import Social from '../../components/Social/Social'
 import ProfilePic from '../../components/ProfilePic/ProfilePic'
 
-export default function Profile ({ user, setUser, viewUser, setViewUser }) {
+export default function Profile ({ user, viewUser }) {
   const [profilePic, setProfilePic] = useState(null)
   const [movies, setMovies] = useState([])
   const [users, setUsers] = useState([])
@@ -18,7 +18,7 @@ export default function Profile ({ user, setUser, viewUser, setViewUser }) {
     try {
       const response = await fetch('/api/movies')
       const data = await response.json()
-      setMovies(data.filter(movie => movie.userId === user._id))
+      setMovies(data.filter(movie => movie.userId === viewUser._id))
     } catch (error) {
       console.error(error)
     }
@@ -43,18 +43,18 @@ export default function Profile ({ user, setUser, viewUser, setViewUser }) {
     <>
       <div id='main-container'>
         <div id='profile-container' style={{ transform: `translate(${tab}%)` }}>
-          <ProfileDisplay user={user} setUser={setUser} movies={movies} setTab={setTab} tab={tab} setProfilePic={setProfilePic} />
+          {/* <ProfileDisplay user={viewUser} setUser={null} movies={movies} setTab={setTab} tab={tab} setProfilePic={setProfilePic} /> */}
         </div>
         {
-          profilePic ? <ProfilePic user={user} setUser={setUser} setProfilePic={setProfilePic} /> : ''
+        //   profilePic ? <ProfilePic user={viewUser} setUser={null} setProfilePic={setProfilePic} /> : ''
         }
         <div id='content-container'>
-          <MovieSearchBar user={user} getMovies={getMovies} movies={movies} />
+          {/* <MovieSearchBar user={user} getMovies={getMovies} movies={movies} /> */}
           <FavoriteMovies user={user} getMovies={getMovies} movies={movies} />
-          <AllMovies user={user} getMovies={getMovies} movies={movies} />
+          <AllMovies user={user} viewUser={viewUser} getMovies={getMovies} movies={movies} />
         </div>
         <div className='social-tab-container' style={{ transform: `translate(-${socialTab}%)` }}>
-          <Social setSocialTab={setSocialTab} socialTab={socialTab} users={users}  viewUser={viewUser} setViewUser={setViewUser} />
+          {/* <Social setSocialTab={setSocialTab} socialTab={socialTab} users={users}  viewUser={viewUser} setViewUser={setViewUser} /> */}
         </div>
       </div>
     </>

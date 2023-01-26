@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function AllMovies ({ movies, getMovies }) {
+export default function AllMovies ({ user, viewUser, movies, getMovies }) {
   const [foundMovie, setFoundMovie] = useState(null)
   const [inputText, setInputText] = useState('')
 
@@ -63,14 +63,17 @@ export default function AllMovies ({ movies, getMovies }) {
                   <h5>Runtime: {movie.Runtime}</h5>
                   <h5>Box Office: {movie.BoxOffice}</h5>
                 </div>
-                <div>
-                  <button onClick={(evt) => {
-                    evt.stopPropagation()
-                    deleteMovie(movie._id)
-                  }}
-                  >Delete
-                  </button>
-                </div>
+                {
+                  viewUser ? '' :
+                    <div>
+                      <button onClick={(evt) => {
+                        evt.stopPropagation()
+                        deleteMovie(movie._id)
+                      }}
+                      >Delete
+                      </button>
+                    </div>
+                }
               </div>
             </li>
           )

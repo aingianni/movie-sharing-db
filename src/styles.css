@@ -330,6 +330,10 @@ button:hover {
 .profile-stat-data {
     color: #878787;
 }
+
+#profile-stats {
+    /* width: 150px; */
+}
   
 .profile-img:hover img {
     cursor: pointer;

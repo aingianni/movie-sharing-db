@@ -1,7 +1,7 @@
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight'
 import SocialSearch from './SocialSearch'
 
-export default function Social ({ setSocialTab, socialTab, users }) {
+export default function Social ({ setSocialTab, socialTab, users, viewUser, setViewUser }) {
     
     const handleSocialTab = () => {
         if (socialTab === 0) {
@@ -14,7 +14,7 @@ export default function Social ({ setSocialTab, socialTab, users }) {
   return (
     <>
       <div className='outer'>
-        <SocialSearch users={users} />
+        <SocialSearch users={users}  viewUser={viewUser} setViewUser={setViewUser} />
       </div>
 
         <div className='chevron-holder' onClick={() => setSocialTab(handleSocialTab())}>

@@ -24,10 +24,6 @@ app.use('/api', routes) <====== Finish code once you got it
 app.use('/api/users', require('./routes/api/users'))
 app.use('/api/movies', require('./routes/api/movies'))
 
-app.get('/api/test', (req, res) => {
-  res.json({ eureka: 'you have found it' })
-})
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
