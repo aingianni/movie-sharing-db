@@ -26,14 +26,14 @@ export default function LoginForm ({ setUser }) {
   return (
     <div>
       <div className='flex-ctr'>
-        <form autoComplete='off' onSubmit={handleSubmit}>
+        <form className='auth-form' autoComplete='off' onSubmit={handleSubmit}>
           <label>
             Email <input type='email' name='email' value={credentials.email} onChange={handleChange} required />
           </label>
           <label>
             Password <input type='password' name='password' value={credentials.password} onChange={handleChange} required />
           </label>
-          <button type='submit'>LOG IN</button>
+          <button className='auth-submit' type='submit'>LOG IN</button>
         </form>
       </div>
       {

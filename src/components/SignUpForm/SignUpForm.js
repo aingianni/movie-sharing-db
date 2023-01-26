@@ -35,7 +35,7 @@ export default class SignUpForm extends Component {
     return (
       <div>
         <div className='flex-ctr'>
-          <form autoComplete='off' onSubmit={this.handleSubmit}>
+          <form className='auth-form' autoComplete='off' onSubmit={this.handleSubmit}>
             <label>
               Name <input type='text' name='name' value={this.state.name} onChange={this.handleChange} required />
             </label>
@@ -48,7 +48,7 @@ export default class SignUpForm extends Component {
             <label>
               Confirm <input type='password' name='confirm' value={this.state.confirm} onChange={this.handleChange} required />
             </label>
-            <button type='submit' disabled={disable}>SIGN UP</button>
+            <button className='auth-submit' type='submit' disabled={disable}>SIGN UP</button>
           </form>
         </div>
         {

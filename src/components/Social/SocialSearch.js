@@ -19,8 +19,8 @@ export default function SocialSearch ({ users, viewUser, setViewUser }) {
       })
 
     return (
-        <div>
-            <div>
+        <div className='social-list-container'>
+            <div className='user-search-container'>
                 <input className="user-search" placeholder='Search Users' onChange={inputHandler} />
             </div>
             {

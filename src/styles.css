@@ -201,6 +201,7 @@ button:hover {
 #main-container {
     align-items: top;
     display: flex;
+    flex-direction: row;
     padding: 20px;
     position: absolute;
     top: 1%;
@@ -300,6 +301,10 @@ button:hover {
     max-width: 200px;
 }
 
+#profile-stats {
+    width: 4vw;
+}
+
 .profile-stat-data {
     color: #878787;
 }
@@ -397,4 +402,156 @@ ul, li {
 
 .vert-spacer {
     height: 100px;
+}
+
+/* Responsive for phones */
+@media screen and (max-width: 1000px) {
+
+body {
+    background-color: #3d5a80;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+
+.form-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50vh;
+    width: 80vw;
+}
+
+.login-toggle {
+    height: 4vh;
+    width: 30vw;
+}
+
+.auth-submit {
+    font-size: 4vw;
+    width: 30vw;
+}
+
+.flex-ctr label {
+    width: 80vw;
+}
+
+.flex-ctr input {
+    margin-left: 10vw;
+    font-size: 3vw;
+    width: 50vw;
+}
+
+#main-container {
+    display: block;
+    top: 0;
+    height: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+#profile-container {
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 0 0 0 0;
+    color: white;
+    justify-content: space-around;
+    height: auto;
+    padding: 10px;
+}
+
+.profile-img {
+    justify-content: left;
+}
+
+.profile-img > img {
+    height: 6vh;
+    width: 6vh;
+}
+
+.profile-data {
+    font-size: 2.6vw;
+    position: sticky;
+    top: 0;
+}
+
+.profile-content {
+    align-items: top;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#profile-stats {
+    font-size: 2.5vw;
+    height: auto;
+    width: 65vw;
+}
+
+#profile-stats > ul {
+    columns: 2;
+}
+
+#content-container {
+    border: 0;
+    border-radius: 0 0 0 0;
+    height: auto;
+}
+
+.navbar {
+    width: 95vw;
+}
+
+button {
+    font-size: 2vw;
+    width: 10vw;
+}
+
+.movie-searchbar {
+    font-size: 3vw;
+    width: 65vw;
+}
+
+.collection-search {
+    font-size: 2vw;
+    width: 65vw;
+}
+
+#movies-container {
+    height: auto;
+    font-size: 2vw;
+    width: 100vw;
+}
+
+.vert-spacer {
+    height: 0;
+}
+
+.social-tab-container {
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 0 0 0 0;
+    display: flex;
+    font-size: .9vw;
+    font-size: 1.5vh;
+    height: auto;
+    padding: 10px;
+}
+
+.user-search-container {
+    width: auto;
+}
+
+.user-search {
+    font-size: 5vw;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.social-list-container {
+    width: 90vw;
+}
+      
 }

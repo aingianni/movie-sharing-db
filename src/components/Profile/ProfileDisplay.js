@@ -42,7 +42,7 @@ export default function ProfileDisplay ({ user, viewUser, movies, setProfilePic 
 
   return (
     <>
-    <div>
+    <div className="profile-content">
 
     {
       viewUser ? 
@@ -74,9 +74,9 @@ export default function ProfileDisplay ({ user, viewUser, movies, setProfilePic 
       <div className='outer'>
         <div id='profile-stats'>
           <ul>
-            <li><h4>Favorite Director:</h4> <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
-            <li><h4>Favorite Genre:</h4> <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
-            <li><h4>Total Runtime:</h4> <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
+            <li>Favorite Director: <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
+            <li>Favorite Genre: <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
+            <li>Total Runtime: <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
           </ul>
         </div>
       </div>
