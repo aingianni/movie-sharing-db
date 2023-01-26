@@ -15,9 +15,9 @@ export default function Profile ({ user, users, setUser, viewUser, setViewUser, 
       <div id='main-container'>
 
         <div>
-          <div className='vert-spacer'></div>
+          <div className='vert-spacer' />
           <div id='profile-container'>
-          <ProfileDisplay user={user} viewUser={viewUser} movies={movies} setProfilePic={setProfilePic} />
+            <ProfileDisplay user={user} viewUser={viewUser} movies={movies} setProfilePic={setProfilePic} />
           </div>
         </div>
 
@@ -34,9 +34,9 @@ export default function Profile ({ user, users, setUser, viewUser, setViewUser, 
         </div>
 
         <div>
-          <div className='vert-spacer'></div>
+          <div className='vert-spacer' />
           <div className='social-tab-container'>
-          <Social users={users}  viewUser={viewUser} setViewUser={setViewUser} />
+            <Social users={users} viewUser={viewUser} setViewUser={setViewUser} />
           </div>
         </div>
 

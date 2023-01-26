@@ -1,5 +1,6 @@
-export default function ProfileDisplay ({ user, viewUser, movies, setProfilePic }) {
+import ScrollButton from './ScrollButton'
 
+export default function ProfileDisplay ({ user, viewUser, movies, setProfilePic }) {
   const favoriteDirector = () => {
     const allDirectors = movies.reduce((acc, item) => {
       return [...acc, item.Director]
@@ -42,46 +43,52 @@ export default function ProfileDisplay ({ user, viewUser, movies, setProfilePic 
 
   return (
     <>
-    <div className="profile-content">
+      <div className='profile-content'>
 
-    {
-      viewUser ? 
+        {
+      viewUser
       // ViewUser Profile Display
-      <div>
-        <div className='profile-img'>
-          <img src={viewUser.profilePic}/>
+        ? <div>
+          <div className='profile-img'>
+            <img src={viewUser.profilePic} />
+          </div>
+          <div className='profile-data'>
+            {viewUser.name} <br />
+            <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
+          </div>
         </div>
-        <div className='profile-data'>
-          {viewUser.name} <br />
-          <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
-        </div>
-      </div>
-      :
+        :
       // User Profile Display
-      <div>
-        <div className='profile-img' onClick={() => setProfilePic(true)}>
-          <img src={user.profilePic}/>
+        <div>
+          <div className='profile-img' onClick={() => setProfilePic(true)}>
+            <img src={user.profilePic} />
+          </div>
+          <div className='profile-data'>
+            {user.name} <br />
+            <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
+          </div>
         </div>
-        <div className='profile-data'>
-          {user.name} <br />
-          <span className='profile-stat-data'>{movies.length > 0 ? movies.length : 0} movies in collection.</span>
-        </div>
-      </div>
     }
 
-      <br />
+        <br />
 
-      <div className='outer'>
-        <div id='profile-stats'>
-          <ul>
-            <li>Favorite Director: <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
-            <li>Favorite Genre: <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
-            <li>Total Runtime: <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
-          </ul>
+        <div className='outer'>
+          <div className='profile-stats-outer'>
+            <div id='profile-stats'>
+              <ul>
+                <li>Favorite Director: <span className='profile-stat-data'>{movies ? favoriteDirector() : ''}</span></li>
+                <li>Favorite Genre: <span className='profile-stat-data'>{movies ? favoriteGenre() : ''}</span></li>
+                <li>Total Runtime: <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
+              </ul>
+            </div>
+            <br />
+            <div className='user-search-button-outer'>
+              <ScrollButton />
+            </div>
+          </div>
         </div>
-      </div>
 
-    </div>
+      </div>
     </>
   )
 }

@@ -64,15 +64,16 @@ export default function AllMovies ({ viewUser, movies, getMovies }) {
                   <h5>Box Office: {movie.BoxOffice}</h5>
                 </div>
                 {
-                  viewUser ? '' :
-                    <div>
+                  viewUser
+                    ? ''
+                    : <div>
                       <button onClick={(evt) => {
                         evt.stopPropagation()
                         deleteMovie(movie._id)
                       }}
                       >Delete
                       </button>
-                    </div>
+                      </div>
                 }
               </div>
             </li>
@@ -90,8 +91,8 @@ export default function AllMovies ({ viewUser, movies, getMovies }) {
             <div id='display-movie'>
               <img src={foundMovie.Poster} alt={foundMovie.Title} />
               <h1>{foundMovie.Title}</h1>
-              <h4><span className="outer">Rated: {foundMovie.Rated}</span> <span className="outer">Released: {foundMovie.Released}</span> <span className="outer">Runtime: {foundMovie.Runtime}</span></h4>
-              <h4><span className="outer">Genre: {foundMovie.Genre}</span> <span className="outer">Director: {foundMovie.Director}</span></h4>
+              <h4><span className='outer'>Rated: {foundMovie.Rated}</span> <span className='outer'>Released: {foundMovie.Released}</span> <span className='outer'>Runtime: {foundMovie.Runtime}</span></h4>
+              <h4><span className='outer'>Genre: {foundMovie.Genre}</span> <span className='outer'>Director: {foundMovie.Director}</span></h4>
               <div className='outer'>
                 <p>
                   {foundMovie.Plot}

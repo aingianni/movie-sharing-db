@@ -404,6 +404,10 @@ ul, li {
     height: 100px;
 }
 
+.user-search-button-outer {
+    visibility: hidden;
+}
+
 /* Responsive for phones */
 @media screen and (max-width: 1000px) {
 
@@ -419,7 +423,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 50vh;
+    height: 90vh;
     width: 80vw;
 }
 
@@ -502,16 +506,17 @@ body {
 
 .navbar {
     width: 95vw;
+    justify-content: space-around;
 }
 
 button {
     font-size: 2vw;
-    width: 10vw;
+    width: 15vw;
 }
 
 .movie-searchbar {
     font-size: 3vw;
-    width: 65vw;
+    width: 51vw;
 }
 
 .collection-search {
@@ -571,8 +576,27 @@ button {
 }
 
 .social-list-container {
-    height: 15vh;
+    max-height: 20vh;
     width: 90vw;
+}
+
+.user-search-button-outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: visible;
+}
+
+.profile-stats-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user-search-button {
+    font-size: 3vw;
+    width: 50vw;
 }
       
 }
