@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function AllMovies ({ user, viewUser, movies, getMovies }) {
+export default function AllMovies ({ viewUser, movies, getMovies }) {
   const [foundMovie, setFoundMovie] = useState(null)
   const [inputText, setInputText] = useState('')
 

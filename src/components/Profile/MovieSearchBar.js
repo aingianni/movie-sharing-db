@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import DisplayMovie from '../DisplayMovie/DisplayMovie'
 
-export default function MovieSearchBar (props) {
+export default function MovieSearchBar ({ user, getMovies }) {
   const apiKey = '63153185'
   const [movie, setMovie] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
@@ -37,7 +37,7 @@ export default function MovieSearchBar (props) {
       </div>
       {
         movie
-          ? <DisplayMovie movie={movie} user={props.user} setMovie={setMovie} getMovies={props.getMovies} />
+          ? <DisplayMovie movie={movie} user={user} setMovie={setMovie} getMovies={getMovies} />
           : ''
       }
     </>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function FavoriteMovies ({ getMovies, movies, user }) {
+export default function FavoriteMovies ({ movies }) {
   const [index, setIndex] = useState(0)
 
   const scroll = () => {

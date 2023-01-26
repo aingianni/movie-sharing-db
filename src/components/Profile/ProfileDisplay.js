@@ -1,10 +1,14 @@
 import { logOut } from '../../utilities/users-service'
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft'
+import { useNavigate } from 'react-router-dom'
 
-export default function ProfileDisplay ({ user, setUser, viewUser, movies, setTab, tab, setProfilePic }) {
+export default function ProfileDisplay ({ user, setUser, viewUser, setViewUser, movies, setProfilePic }) {
+  const navigate = useNavigate()
+
   function handleLogOut () {
     logOut()
     setUser(null)
+    setViewUser(null)
+    navigate('/')
   }
 
   const favoriteDirector = () => {
@@ -47,20 +51,8 @@ export default function ProfileDisplay ({ user, setUser, viewUser, movies, setTa
     return runtimeSum + ' min'
   }
 
-  const handleTab = () => {
-    if (tab === 0) {
-      return 82
-    } else {
-      return 0
-    }
-  }
-
   return (
     <>
-    <div className='chevron-holder' onClick={() => setTab(handleTab())}>
-      <ArrowCircleLeftIcon />
-    </div>
-
     <div>
 
     {
@@ -68,10 +60,7 @@ export default function ProfileDisplay ({ user, setUser, viewUser, movies, setTa
       // ViewUser Profile Display
       <div>
         <div className='profile-img'>
-          <img src={
-              viewUser.profilePic.length > 2
-                ? viewUser.profilePic
-                : 'https://i.imgur.com/jUZ3hJA.jpg'}/>
+          <img src={viewUser.profilePic}/>
         </div>
         <div className='profile-data'>
           {viewUser.name} <br />
@@ -82,10 +71,7 @@ export default function ProfileDisplay ({ user, setUser, viewUser, movies, setTa
       // User Profile Display
       <div>
         <div className='profile-img' onClick={() => setProfilePic(true)}>
-          <img src={
-              user.profilePic.length > 2
-                ? user.profilePic
-                : 'https://i.imgur.com/jUZ3hJA.jpg'}/>
+          <img src={user.profilePic}/>
         </div>
         <div className='profile-data'>
           {user.name} <br />

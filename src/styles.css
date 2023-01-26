@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
+body {
+    overflow: hidden;
+}
+
 .App {
     align-items: center;
     display: flex;
@@ -17,7 +21,7 @@
     height: 75px;
 }
 
-.all-movies-list-item {
+.all-movies-list-item, .user-search-item {
     align-items: center;
     border-radius: 5px;
     color: #293241;
@@ -27,7 +31,7 @@
     padding: .5vw;
 }
 
-.all-movies-list-item:hover {
+.all-movies-list-item:hover, .user-search-item:hover {
     background-color: #3d5a80;
     color: white;
     cursor: pointer;
@@ -35,10 +39,6 @@
 
 .all-movies-title {
     width: 10vw;
-}
-
-body {
-    overflow: hidden;
 }
 
 button {
@@ -59,7 +59,6 @@ button:hover {
 .carousel-container {
     display: flex;
     flex-wrap: nowrap;
-    height: 80vh;
     overflow: hidden;
     width: 55vw;
 }
@@ -76,38 +75,6 @@ button:hover {
 .carousel-item > img {
     border-radius: 10px;
     height: 28vh;
-}
-
-.chevron-holder {
-    padding: 10px;
-}
-
-.chevron-holder:hover {
-    cursor: pointer;
-}
-
-.chevron::before {
-	border-style: solid;
-	border-width: 0.25em 0.25em 0 0;
-	content: '';
-	display: inline-block;
-	height: 0.45em;
-	left: 0.15em;
-	position: relative;
-	top: 0.15em;
-	transform: rotate(-45deg);
-	vertical-align: top;
-	width: 0.45em;
-}
-
-.chevron.right:before {
-	left: 0;
-	transform: rotate(45deg);
-}
-
-.chevron.left:before {
-	left: 0.25em;
-	transform: rotate(-135deg);
 }
  
 .change-profile {
@@ -148,6 +115,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     font-family: 'Maven Pro', sans-serif;
+    height: 90vh;
     justify-content: center;
     padding: 20px;
     z-index: 1;
@@ -155,7 +123,6 @@ button:hover {
 
 #content-container {
     font-size: .8vw;
-    height: 90vh;
 }
 
 .controls-display-movie {
@@ -232,11 +199,11 @@ button:hover {
 }
 
 #main-container {
-    align-items: center;
+    align-items: top;
     display: flex;
-    height: 100vh;
-    justify-content: center;
     padding: 20px;
+    position: absolute;
+    top: 1%;
 }
 
 .modal {
@@ -273,7 +240,7 @@ button:hover {
 }
 
 #movies-container {
-    height: 45vh;
+    height: 50vh;
     overflow: auto;
     width: 50vw;
 }
@@ -303,13 +270,12 @@ button:hover {
     border-radius: 20px 0 0 20px;
     color: white;
     display: flex;
-    flex-direction: row;
     font-family: 'Maven Pro', sans-serif;
     font-size: .9vw;
+    font-size: 1.5vh;
+    height: 50vh;
     justify-content: center;
     padding: 20px;
-    transition: all 0.5s ease-out;
-    width: 9vw;
 }
 
 .profile-img {
@@ -354,19 +320,19 @@ button:hover {
     border-top: 5px solid #293241;
     border-bottom: 5px solid #293241;
     border-radius: 0 20px 20px 0;
-    color: white;
     display: flex;
-    flex-direction: row;
     font-family: 'Maven Pro', sans-serif;
     font-size: .9vw;
+    font-size: 1.5vh;
+    height: 50vh;
     justify-content: center;
     padding: 20px;
-    transition: all 0.5s ease-out;
-    width: 9vw;
-    z-index: 0;
 }
 
 .social-list {
+    height: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
     visibility: hidden;
 }
 
@@ -384,4 +350,44 @@ ul, li {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.user-search {
+    background-color: rgb(255, 255, 255, 0.7);
+    border: 0;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    color: #293241;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: .8vw;
+    font-size: 1.5vh;
+    padding: 10px;
+    text-align: center;
+    width: 8vw;
+}
+
+.user-search-profile-pic {
+    border-radius: 5px;
+    height: 25px;
+}
+
+.outer-user-search-item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.user-search-name-outer {
+    width: 80%;
+    font-size: .7vw;
+    font-size: 1.2vh;
+}
+
+.user-search-img-outer {
+    width: 15%;
+}
+
+.vert-spacer {
+    height: 100px;
 }

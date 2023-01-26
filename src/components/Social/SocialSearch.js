@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function SocialSearch ({ users, viewUser, setViewUser }) {
     const [inputText, setInputText] = useState('')
-    const [visible, setVisible] = useState('hidden')
+    const navigate = useNavigate()
 
     const inputHandler = (e) => {
         const lowerCase = e.target.value.toLowerCase()
@@ -18,12 +18,10 @@ export default function SocialSearch ({ users, viewUser, setViewUser }) {
         }
       })
 
-    const navigate = useNavigate()
-
     return (
         <div>
             <div>
-                <input placeholder='Search Users' onChange={inputHandler} />
+                <input className="user-search" placeholder='Search Users' onChange={inputHandler} />
             </div>
             {
                 users ? 
@@ -32,10 +30,19 @@ export default function SocialSearch ({ users, viewUser, setViewUser }) {
                         {
                             filteredUsers.map((user) => {
                                 return (
-                                <li key={user._id} onClick={() => {
+                                <li className='user-search-item' key={user._id} onClick={() => {
                                     setViewUser(user)
                                     navigate(`/${user._id}`)
-                                    }}>{user.name}</li>
+                                    }}>
+                                  <div className='outer-user-search-item'>
+                                    <div className="user-search-img-outer">
+                                        <img className="user-search-profile-pic" src={user.profilePic} />
+                                    </div>
+                                    <div className="user-search-name-outer">
+                                        {user.name}
+                                    </div>
+                                  </div>
+                                </li>
                                 )
                             })
                         }
