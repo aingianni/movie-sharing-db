@@ -42,7 +42,7 @@ function App () {
         user
           ? <>
             <Routes>
-              <Route path='/' element={<Profile movies={movies} getMovies={getMovies} user={user} users={users} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />} />
+              <Route path='/' element={<Profile movies={movies} getMovies={getMovies} setMovies={setMovies} user={user} users={users} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />} />
               <Route path='/:userId' element={
                 viewUser ?
                 <ViewOtherUserProfile movies={movies} setMovies={setMovies} user={user} users={users} getUsers={getUsers} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />

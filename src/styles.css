@@ -229,7 +229,7 @@ button:hover {
     font-size: 1.5vw;
     padding: 10px;
     text-align: center;
-    width: 50vw;
+    width: 40vw;
 }
   
 #movie-search-container {
@@ -243,6 +243,13 @@ button:hover {
     height: 50vh;
     overflow: auto;
     width: 50vw;
+}
+
+.navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
 }
 
 .outer {

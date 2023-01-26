@@ -1,15 +1,4 @@
-import { logOut } from '../../utilities/users-service'
-import { useNavigate } from 'react-router-dom'
-
-export default function ProfileDisplay ({ user, setUser, viewUser, setViewUser, movies, setProfilePic }) {
-  const navigate = useNavigate()
-
-  function handleLogOut () {
-    logOut()
-    setUser(null)
-    setViewUser(null)
-    navigate('/')
-  }
+export default function ProfileDisplay ({ user, viewUser, movies, setProfilePic }) {
 
   const favoriteDirector = () => {
     const allDirectors = movies.reduce((acc, item) => {
@@ -90,13 +79,8 @@ export default function ProfileDisplay ({ user, setUser, viewUser, setViewUser, 
             <li><h4>Total Runtime:</h4> <span className='profile-stat-data'>{movies ? totalRuntime() : ''}</span></li>
           </ul>
         </div>
-
-        <br />
-
-        <div id='profile-log-out'>
-          <button onClick={handleLogOut}>Log Out</button>
-        </div>
       </div>
+
     </div>
     </>
   )

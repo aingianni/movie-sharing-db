@@ -4,6 +4,7 @@ import AllMovies from '../../components/Profile/AllMovies'
 import FavoriteMovies from '../../components/Profile/FavoriteMovies'
 import ProfileDisplay from '../../components/Profile/ProfileDisplay'
 import Social from '../../components/Social/Social'
+import NavBar from '../../components/Profile/NavBar'
 
 export default function Profile ({ user, users, setUser, viewUser, setViewUser, movies, setMovies  }) {
   const getViewUserMovies = async () => {
@@ -33,6 +34,7 @@ export default function Profile ({ user, users, setUser, viewUser, setViewUser, 
         </div>
 
         <div id='content-container'>
+          <NavBar user={user} setUser={setUser} setViewUser={setViewUser} />
           <FavoriteMovies user={user} movies={movies} />
           <br />
           <AllMovies viewUser={viewUser} movies={movies} />

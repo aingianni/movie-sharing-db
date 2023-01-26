@@ -1,4 +1,10 @@
-export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
+import { SettingsSuggestRounded } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
+import { getUser } from '../../utilities/users-service'
+
+export default function DisplayMovie ({ getMovies, movie, setMovie, user, setUser, setViewUser }) {
+  const navigate = useNavigate()
+
   const createMovie = async () => {
     try {
       await fetch('/api/movies', {
@@ -44,6 +50,9 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user }) {
                 <button onClick={() => {
                   createMovie()
                   setMovie(null)
+                  setViewUser(null)
+                  setUser(getUser())
+                  navigate('/')
                 }}
                 >Add Movie
                 </button>
