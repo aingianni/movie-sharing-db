@@ -1,34 +1,35 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 export default function FavoriteMovies ({ movies }) {
-  const [index, setIndex] = useState(0)
-
-  const scroll = () => {
-    if (index === movies.length - 1) {
-      return setIndex(0)
-    }
-    return setIndex(index + 1)
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => { scroll() }, 3000)
-    return () => clearInterval(interval)
-  })
+  const [activeSlide, setActiveSlide] = useState(0)
 
   return (
     <>
       <div className='carousel-container'>
+      <Carousel 
+      autoPlay
+      infiniteLoop
+      centerMode
+      showThumbs={false}
+      showArrows={false}
+      showStatus={false}
+      centerSlidePercentage={20}
+      showIndicators={false}
+      >
         {
           movies
-            ? movies.map((movie) => {
+            ? movies.map((movie, index) => {
               return (
-                <div className='carousel-item' style={{ transform: `translate(-${index * 100}%)` }} key={movie._id}>
-                  <img src={movie.Poster} />
+                <div className='carousel-img-outer' key={index}>
+                  <img className="carousel-img" src={movie.Poster} alt={`${movie.Title} poster.`} />
                 </div>
               )
             })
             : ''
         }
+      </Carousel>
       </div>
     </>
   )
