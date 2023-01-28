@@ -18,7 +18,10 @@ const userSchema = new Schema({
     minLength: 3,
     required: true
   },
-  profilePic: { type: String, required: false, default: "https://i.imgur.com/jUZ3hJA.jpg" }
+  profilePic: { 
+    type: String, 
+    default: "https://i.imgur.com/jUZ3hJA.jpg" 
+  }
 }, {
   timestamps: true,
   toJSON: {
