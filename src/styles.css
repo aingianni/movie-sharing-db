@@ -397,6 +397,7 @@ ul, li {
 
 .user-search-profile-pic {
     border-radius: 5px;
+    object-fit: cover;
     height: 25px;
 }
 
@@ -413,16 +414,16 @@ ul, li {
     font-size: 1.2vh;
 }
 
-.user-search-profile-pic {
-    object-fit: cover;
-    width: 1vw;
-}
-
 .vert-spacer {
     height: 100px;
 }
 
 .user-search-button-outer {
+    visibility: hidden;
+}
+
+.scroll-top-button {
+    width: 0;
     visibility: hidden;
 }
 
@@ -596,10 +597,6 @@ button {
     padding: 10px;
 }
 
-.social-tab-holder-main {
-    /* visibility: hidden; */
-}
-
 .user-search-container {
     width: auto;
 }
@@ -642,6 +639,13 @@ button {
     background-color: #293241;
     font-size: 3vw;
     width: 50vw;
+}
+
+.scroll-top-button {
+    background-color: #293241;
+    font-size: 3vw;
+    width: 100%;
+    visibility: visible;
 }
 
 .all-movies-title {

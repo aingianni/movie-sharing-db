@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Social from '../Social/Social'
 
 export default function ScrollButton () {
   const [visible, setVisible] = useState(true)
@@ -16,7 +15,7 @@ export default function ScrollButton () {
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.documentElement.scrollHeight,
-      behavior: 'auto'
+      behavior: 'smooth'
     })
   }
 
