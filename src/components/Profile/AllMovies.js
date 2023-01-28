@@ -51,7 +51,7 @@ export default function AllMovies ({ viewUser, movies, getMovies }) {
             <li key={movie._id} className='movie-list' onClick={() => setFoundMovie(movie)}>
               <div className='all-movies-list-item'>
                 <div className='all-movies-img-outer'><img src={movie.Poster} /></div>
-                <div className='all-movies-title'>
+                <div id='all-movies-title'>
                   <ul>
                     <li><h3>{movie.Title}</h3></li>
                     <li><h4>Director: {movie.Director}</h4></li>
@@ -73,12 +73,13 @@ export default function AllMovies ({ viewUser, movies, getMovies }) {
                   viewUser
                     ? ''
                     : <div>
-                        <button className='delete-button' onClick={(evt) => {
+                      <button
+                        className='delete-button' onClick={(evt) => {
                           evt.stopPropagation()
                           deleteMovie(movie._id)
                         }}
-                        >Delete
-                        </button>
+                      >Delete
+                      </button>
                       </div>
                 }
               </div>

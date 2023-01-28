@@ -42,13 +42,34 @@ function App () {
         user
           ? <>
             <Routes>
-              <Route path='/' element={<Profile movies={movies.filter(movie => movie.userId === user._id)} getMovies={getMovies} setMovies={setMovies} user={user} users={users} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />} />
               <Route
-                path='/:userId' element={
-                viewUser
-                  ? <ViewOtherUserProfile movies={movies.filter(movie => movie.userId === viewUser._id)} setMovies={setMovies} user={user} users={users} getUsers={getUsers} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />
-                  : 'Error'
-              }
+                path='/' element={<Profile
+                  movies={movies.filter(movie => movie.userId === user._id)}
+                  getMovies={getMovies}
+                  setMovies={setMovies}
+                  user={user}
+                  users={users}
+                  setUser={setUser}
+                  viewUser={viewUser}
+                  setViewUser={setViewUser}
+                                  />}
+              />
+              <Route
+                path='/:userId'
+                element={
+                  viewUser
+                    ? <ViewOtherUserProfile
+                        movies={movies.filter(movie => movie.userId === viewUser._id)}
+                        setMovies={setMovies}
+                        user={user}
+                        users={users}
+                        getUsers={getUsers}
+                        setUser={setUser}
+                        viewUser={viewUser}
+                        setViewUser={setViewUser}
+                      />
+                    : 'Error'
+                }
               />
             </Routes>
           </>

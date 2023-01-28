@@ -43,6 +43,12 @@ body {
     width: 10%;
 }
 
+#all-movies-title {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
 button {
     background-color: #ee6c4d;
     border: 0;
@@ -407,8 +413,9 @@ ul, li {
     font-size: 1.2vh;
 }
 
-.user-search-img-outer {
-    width: 15%;
+.user-search-profile-pic {
+    object-fit: cover;
+    width: 1vw;
 }
 
 .vert-spacer {

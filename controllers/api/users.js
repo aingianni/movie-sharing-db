@@ -49,7 +49,7 @@ const dataController = {
     })
   },
   index (req, res, next) {
-    User.find({}, {name: 1, profilePic: 1}, (err, foundUsers) => {
+    User.find({}, { name: 1, profilePic: 1 }, (err, foundUsers) => {
       if (err) {
         res.status(400).send({
           msg: err.message
