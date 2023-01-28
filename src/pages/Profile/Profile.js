@@ -33,7 +33,7 @@ export default function Profile ({ user, users, setUser, viewUser, setViewUser, 
           <AllMovies getMovies={getMovies} movies={movies} />
         </div>
 
-        <div>
+        <div className='social-tab-holder-main'>
           <div className='vert-spacer' />
           <div className='social-tab-container'>
             <Social users={users} viewUser={viewUser} setViewUser={setViewUser} />

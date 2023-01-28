@@ -57,13 +57,13 @@ export default function AllMovies ({ viewUser, movies, getMovies }) {
                     <li><h4>Director: {movie.Director}</h4></li>
                   </ul>
                 </div>
-                <div>
+                <div id='all-movies-title'>
                   <ul>
                     <li><h5>Released: {movie.Released}</h5></li>
                     <li><h5>Rated: {movie.Rated}</h5></li>
                   </ul>
                 </div>
-                <div>
+                <div id='all-movies-title'>
                   <ul>
                     <li><h5>Runtime: {movie.Runtime}</h5></li>
                     <li><h5>Box Office: {movie.BoxOffice}</h5></li>

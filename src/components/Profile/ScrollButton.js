@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Social from '../Social/Social'
 
 export default function ScrollButton () {
   const [visible, setVisible] = useState(true)

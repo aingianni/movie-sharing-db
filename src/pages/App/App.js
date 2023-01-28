@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import AuthPage from '../AuthPage/AuthPage'
 import Profile from '../Profile/Profile'
 import ViewOtherUserProfile from '../ViewOtherUserProfile/ViewOtherUserProfile'
@@ -10,6 +10,7 @@ function App () {
   const [viewUser, setViewUser] = useState(null)
   const [movies, setMovies] = useState([])
   const [users, setUsers] = useState([])
+  const navigate = useNavigate()
 
   const getMovies = async () => {
     try {
@@ -68,7 +69,16 @@ function App () {
                         viewUser={viewUser}
                         setViewUser={setViewUser}
                       />
-                    : 'Error'
+                    : <div className='form-container'>
+                        <h1>Error User Not Found</h1>
+                        <button onClick={() => {
+                          setViewUser(null)
+                          setUser(getUser())
+                          navigate('/')
+                        }}
+                        >Home
+                        </button>
+                      </div>
                 }
               />
             </Routes>

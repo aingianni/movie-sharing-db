@@ -12,7 +12,6 @@ export default function Profile ({ user, users, setUser, viewUser, setViewUser, 
       const response = await fetch('/api/movies')
       const data = await response.json()
       setMovies(data.filter(movie => movie.userId === viewUser._id))
-      console.log('getViewUserMovies has run on the view user page')
     } catch (error) {
       console.error(error)
     }

@@ -577,9 +577,6 @@ button {
     max-width: 100vw;
     font-size: 3vw;
     width: 85vw;
-    /* position: absolute; */
-    /* top: 5%; */
-    /* left: 2%; */
     height: 90vh;
 }
 
@@ -597,6 +594,10 @@ button {
     font-size: 1.5vh;
     height: auto;
     padding: 10px;
+}
+
+.social-tab-holder-main {
+    /* visibility: hidden; */
 }
 
 .user-search-container {
