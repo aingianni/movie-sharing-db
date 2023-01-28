@@ -25,7 +25,6 @@ export default function DisplayMovie ({ getMovies, movie, setMovie, user, setUse
           userId: user._id
         })
       })
-      getMovies()
     } catch (error) {
       console.error(error)
     }

@@ -15,7 +15,7 @@ function App () {
     try {
       const response = await fetch('/api/movies')
       const data = await response.json()
-      setMovies(data.filter(movie => movie.userId === user._id))
+      setMovies(data)
     } catch (error) {
       console.error(error)
     }
@@ -42,11 +42,11 @@ function App () {
         user
           ? <>
             <Routes>
-              <Route path='/' element={<Profile movies={movies} getMovies={getMovies} setMovies={setMovies} user={user} users={users} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />} />
+              <Route path='/' element={<Profile movies={movies.filter(movie => movie.userId === user._id)} getMovies={getMovies} setMovies={setMovies} user={user} users={users} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />} />
               <Route
                 path='/:userId' element={
                 viewUser
-                  ? <ViewOtherUserProfile movies={movies} setMovies={setMovies} user={user} users={users} getUsers={getUsers} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />
+                  ? <ViewOtherUserProfile movies={movies.filter(movie => movie.userId === viewUser._id)} setMovies={setMovies} user={user} users={users} getUsers={getUsers} setUser={setUser} viewUser={viewUser} setViewUser={setViewUser} />
                   : 'Error'
               }
               />

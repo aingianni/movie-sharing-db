@@ -85,6 +85,7 @@ button:hover {
     flex-direction: column;
     font-family: 'Maven Pro', sans-serif;
     padding: 20px;
+    z-index: 2;
 }
 
 .collection-search {
@@ -114,7 +115,6 @@ button:hover {
     height: 90vh;
     justify-content: center;
     padding: 20px;
-    z-index: 1;
 }
 
 #content-container {
