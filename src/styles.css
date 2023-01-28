@@ -519,11 +519,12 @@ body {
     height: auto;
     padding: 0;
     width: auto;
+    overflow: hidden;
 }
 
 .carousel-img-outer {
     border: 5px solid #293241;
-    width: 25vw;
+    width: 100%;
 }
 
 .carousel-nav-btn {
@@ -644,7 +645,7 @@ h2 {
 }
 
 h4 {
-    font-size: smaller;
+    font-size: 2vw;
 }
 
 h5 {
