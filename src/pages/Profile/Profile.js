@@ -1,14 +1,10 @@
-import { useState, useEffect } from 'react'
-
 import AllMovies from '../../components/Profile/AllMovies'
 import FavoriteMovies from '../../components/Profile/FavoriteMovies'
 import ProfileDisplay from '../../components/Profile/ProfileDisplay'
 import Social from '../../components/Social/Social'
-import ProfilePic from '../../components/ProfilePic/ProfilePic'
 import NavBar from '../../components/Profile/NavBar'
 
 export default function Profile ({ user, users, setUser, viewUser, setViewUser, movies, setMovies, getMovies }) {
-  const [profilePic, setProfilePic] = useState(null)
 
   return (
     <>
@@ -17,13 +13,9 @@ export default function Profile ({ user, users, setUser, viewUser, setViewUser, 
         <div>
           <div className='vert-spacer' />
           <div id='profile-container'>
-            <ProfileDisplay user={user} viewUser={viewUser} movies={movies} setProfilePic={setProfilePic} />
+            <ProfileDisplay user={user} setUser={setUser} viewUser={viewUser} movies={movies} />
           </div>
         </div>
-
-        {
-          profilePic ? <ProfilePic user={user} setUser={setUser} setProfilePic={setProfilePic} /> : ''
-        }
 
         <div id='content-container'>
           <NavBar user={user} setUser={setUser} setViewUser={setViewUser} getMovies={getMovies} />

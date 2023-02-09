@@ -11,6 +11,8 @@ router.post('/login', dataController.login, apiController.auth)
 router.put('/:id', dataController.update, apiController.show)
 // GET
 router.get('/', dataController.index, apiController.index)
+// GET - SHOW
+router.get('/:id', dataController.show, apiController.show)
 
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, checkToken)
