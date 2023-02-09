@@ -306,7 +306,9 @@ button:hover {
 .profile-img {
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 10px;
 }
 
 .profile-img > img {
@@ -324,10 +326,6 @@ button:hover {
 
 .profile-stat-data {
     color: #878787;
-}
-  
-.profile-img:hover img {
-    cursor: pointer;
 }
   
 #profile-log-out {

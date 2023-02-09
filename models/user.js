@@ -4,6 +4,12 @@ const bcrypt = require('bcrypt')
 const SALT_ROUNDS = 6
 
 const userSchema = new Schema({
+  icon: {
+    type: String,
+    required: false,
+    default:
+      "https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-512x488-rddkk3u9.png",
+  },
   name: { type: String, required: true },
   email: {
     type: String,
@@ -17,10 +23,6 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  },
-  profilePic: { 
-    type: String, 
-    default: "https://i.imgur.com/jUZ3hJA.jpg" 
   }
 }, {
   timestamps: true,

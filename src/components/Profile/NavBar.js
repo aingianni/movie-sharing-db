@@ -1,10 +1,20 @@
-import { logOut, getUser } from '../../utilities/users-service'
+import { logOut } from '../../utilities/users-service'
 import { useNavigate } from 'react-router-dom'
 
 import MovieSearchBar from './MovieSearchBar'
 
 export default function NavBar ({ user, setUser, setViewUser, getMovies }) {
   const navigate = useNavigate()
+
+  const getUser = async () => {
+    try {
+      const response = await fetch(`/api/users/${user._id}`)
+      const data = await response.json()
+      setUser(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   function handleLogOut () {
     navigate('/')
@@ -19,7 +29,7 @@ export default function NavBar ({ user, setUser, setViewUser, getMovies }) {
         <div>
           <button onClick={() => {
             setViewUser(null)
-            setUser(getUser())
+            getUser()
             navigate('/')
           }}
           >Home

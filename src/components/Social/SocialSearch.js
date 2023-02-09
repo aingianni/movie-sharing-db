@@ -38,7 +38,7 @@ export default function SocialSearch ({ users, viewUser, setViewUser }) {
                                 >
                                   <div className='outer-user-search-item'>
                                     <div className='user-search-img-outer'>
-                                      <img className='user-search-profile-pic' src={user.profilePic} />
+                                      <img className='user-search-profile-pic' src={user.icon} />
                                     </div>
                                     <div className='user-search-name-outer'>
                                       {user.name}

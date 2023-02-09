@@ -49,13 +49,26 @@ const dataController = {
     })
   },
   index (req, res, next) {
-    User.find({}, { name: 1, profilePic: 1 }, (err, foundUsers) => {
+    User.find({}, { name: 1, icon: 1 }, (err, foundUsers) => {
       if (err) {
         res.status(400).send({
           msg: err.message
         })
       } else {
         res.locals.data.users = foundUsers
+        next()
+      }
+    })
+  },
+  show (req, res, next) {
+    User.findById(req.params.id, (err, foundUser) => {
+      if (err) {
+        res.status(404).send({
+          msg: err.message,
+          output: 'Could not find a user with that ID'
+        })
+      } else {
+        res.locals.data.user = foundUser
         next()
       }
     })
